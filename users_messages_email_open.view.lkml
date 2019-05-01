@@ -132,16 +132,28 @@ view: users_messages_email_open {
     sql:${email_total_opens}/NULLIF(${users_messages_email_send.emails_sent},0) ;;
   }
 
-  measure: email_unique_opens {
-    description: "distinct count of recipients that opened an email campaign (does not count the same person opening an email more than once)"
+  measure: email_unique_opens_mvid {
     type: count_distinct
-    sql: ${TABLE}."EMAIL_ADDRESS" ;;
+    hidden: yes
+    sql: ${TABLE}."EMAIL_ADDRESS", ${TABLE}."MESSAGE_VARIATION_ID" ;;
+  }
+
+  measure: email_unique_opens_csid {
+    type: count_distinct
+    hidden: yes
+    sql: ${TABLE}."EMAIL_ADDRESS", ${TABLE}."CANVAS_STEP_ID" ;;
+  }
+
+  measure: email_unique_opens {
+    description: "distinct count of times a recipient opened an email campaign or canvas (does not count the same person opening the same campaign or canvas more than once)"
+    type: number
+    sql: ${email_unique_opens_mvid}+${email_unique_opens_csid} ;;
   }
 
   measure: email_unique_open_rate {
     description: "unique opens/emails delivered"
     type: number
     value_format_name: percent_2
-    sql:${email_unique_opens}/NULLIF(${users_messages_email_send.emails_sent},0) ;;
+    sql:${email_unique_opens}/NULLIF(${users_messages_email_delivery.emails_delivered},0) ;;
   }
 }

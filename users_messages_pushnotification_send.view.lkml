@@ -117,7 +117,7 @@ view: users_messages_pushnotification_send {
   measure: push_delivered {
     description: "push sent - push bounces"
     type: number
-    sql: ${push_sent}-${users_messages_pushnotification_bounce.push_bounces};;
+    sql: COALESCE(${push_sent},0)-COALESCE(${users_messages_pushnotification_bounce.push_bounces},0);;
   }
 
   measure: push_delivery_rate {
@@ -143,6 +143,6 @@ view: users_messages_pushnotification_send {
   measure: unique_recipients {
     description: "distinct count of users that received a push campaign (the campaign was not bounced)"
     type: number
-    sql: ${sent_recipients}-${users_messages_pushnotification_bounce.bounced_recipients} ;;
+    sql: COALESCE(${sent_recipients},0)-COALESCE(${users_messages_pushnotification_bounce.bounced_recipients},0) ;;
   }
 }

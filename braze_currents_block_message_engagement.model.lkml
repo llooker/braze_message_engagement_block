@@ -3,7 +3,6 @@
 #########################
 connection: "currents_connection"
 
-
 #########################
 # Conversion Views
 #########################
@@ -11,8 +10,6 @@ include: "users_campaigns_conversion.view.lkml"
 include: "users_campaigns_enrollincontrol.view.lkml"
 include: "users_canvas_conversion.view.lkml"
 include: "users_canvas_entry.view.lkml"
-#
-#########################
 
 
 #########################
@@ -24,6 +21,8 @@ include: "users_messages_email_delivery.view.lkml"
 include: "users_messages_email_markasspam.view.lkml"
 include: "users_messages_email_open.view.lkml"
 include: "users_messages_email_send.view.lkml"
+include: "email_messaging_cadence.view"
+include: "email_messaging_frequency.view"
 include: "users_messages_email_softbounce.view.lkml"
 include: "users_messages_email_unsubscribe.view.lkml"
 
@@ -59,6 +58,8 @@ include: "users_messages_pushnotification_bounce.view.lkml"
 include: "users_messages_pushnotification_iosforeground.view.lkml"
 include: "users_messages_pushnotification_open.view.lkml"
 include: "users_messages_pushnotification_send.view.lkml"
+include: "push_messaging_frequency.view"
+include: "push_messaging_cadence.view"
 
 
 #########################
@@ -89,7 +90,8 @@ include: "email_funnel.dashboard"
 include: "push_funnel.dashboard"
 include: "email_performance_dashboard.dashboard"
 include: "message_engagement_dashboard.dashboard"
-
+include: "email_marketing_pressure.dashboard"
+include: "push_marketing_pressure.dashboard"
 
 #########################
 # Campaign Conversions Explore
@@ -211,6 +213,11 @@ explore: users_messages_email_send {
   }
 }
 
+#########################
+# Email Marketing Pressure
+#########################
+explore: email_messaging_frequency {}
+explore: email_messaging_cadence {}
 
 #########################
 # IAM Events Explore
@@ -322,6 +329,11 @@ explore: users_messages_pushnotification_send {
 ########################
 }
 
+#########################
+# Push Marketing Pressure
+#########################
+explore: push_messaging_frequency {}
+explore: push_messaging_cadence {}
 
 #########################
 # Uninstall Events Explore

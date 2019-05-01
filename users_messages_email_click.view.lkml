@@ -132,16 +132,28 @@ view: users_messages_email_click {
     sql: ${email_total_clicks}/NULLIF(${users_messages_email_send.emails_sent},0) ;;
   }
 
-  measure: email_unique_clicks {
-    description: "distinct count of times a user clicked an email (does not count the same person clicking an email more than once)"
+  measure: email_unique_clicks_mvid {
     type: count_distinct
-    sql: ${TABLE}."EMAIL_ADDRESS" ;;
+    hidden: yes
+    sql: ${TABLE}."EMAIL_ADDRESS", ${TABLE}."MESSAGE_VARIATION_ID" ;;
+  }
+
+  measure: email_unique_clicks_csid {
+    type: count_distinct
+    hidden: yes
+    sql: ${TABLE}."EMAIL_ADDRESS", ${TABLE}."CANVAS_STEP_ID" ;;
+  }
+
+  measure: email_unique_clicks {
+    description: "distinct count of times a recipient clicked an email campaign or canvas (does not count the same person clicking the same campaign or canvas more than once)"
+    type: number
+    sql: ${email_unique_clicks_mvid}+${email_unique_clicks_csid} ;;
   }
 
   measure: email_unique_click_rate {
-    description: "unique clicks/emails delivered--may be over 100% at the user level"
+    description: "unique clicks/emails delivered"
     type: number
     value_format_name: percent_2
-    sql:${email_unique_clicks}/NULLIF(${users_messages_email_send.emails_sent},0) ;;
-    }
+    sql:${email_unique_clicks}/NULLIF(${users_messages_email_delivery.emails_delivered},0) ;;
+  }
 }
