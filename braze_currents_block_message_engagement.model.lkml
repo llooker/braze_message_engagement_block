@@ -1,7 +1,7 @@
 #########################
 # Connection
 #########################
-connection: "currents_connection"
+connection: "snowflake"
 
 #########################
 # Conversion Views
