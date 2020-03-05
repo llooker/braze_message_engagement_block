@@ -32,8 +32,8 @@ include: "users_messages_email_unsubscribe.view.lkml"
 #
 # Note: Uncomment the block below when doing In-App Message analytics
 #########################
-# include: "users_messages_inappmessage_click.view.lkml"
-# include: "users_messages_inappmessage_impression.view.lkml"
+include: "users_messages_inappmessage_click.view.lkml"
+include: "users_messages_inappmessage_impression.view.lkml"
 #
 #########################
 
@@ -78,7 +78,7 @@ include: "push_messaging_cadence.view"
 # Note: Uncomment the block below when doing Webhook message analytics
 #########################
 #
- include: "users_messages_webhook_send.view.lkml"
+include: "users_messages_webhook_send.view.lkml"
 #
 #########################
 
