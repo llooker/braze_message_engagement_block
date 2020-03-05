@@ -41,7 +41,7 @@ view: users_canvas_entry {
   dimension_group: entered_canvas_time {
     description: "timestamp the user entered the canvas"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

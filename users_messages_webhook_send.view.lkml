@@ -74,7 +74,7 @@ view: users_messages_webhook_send {
   dimension_group: webhook_sent_time {
     description: "timestamp of the webhook send event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

@@ -97,7 +97,7 @@ view: users_messages_pushnotification_bounce {
   dimension_group: push_bounced_time {
     description: "timestamp of the push bounce event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

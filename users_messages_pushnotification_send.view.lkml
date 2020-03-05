@@ -86,7 +86,7 @@ view: users_messages_pushnotification_send {
   dimension_group: push_sent_time {
     description: "timestamp of the push sent event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

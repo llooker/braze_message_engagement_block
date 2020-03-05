@@ -62,7 +62,7 @@ view: users_messages_email_unsubscribe {
   dimension_group: email_unsubscribe_time {
     description: "timestamp of the unsubscribe event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

@@ -43,7 +43,7 @@ view: users_messages_newsfeedcard_impression {
   dimension_group: newsfeed_card_impression_time {
     description: "timestamp of the newsfeed card impression"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

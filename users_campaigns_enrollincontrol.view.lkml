@@ -35,7 +35,7 @@ view: users_campaigns_enrollincontrol {
     description: "timestamp of the campaign control group enrollment"
     hidden: yes
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

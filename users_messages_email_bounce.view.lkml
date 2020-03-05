@@ -62,7 +62,7 @@ view: users_messages_email_bounce {
   dimension_group: email_bounced_time {
     description: "timestamp of the email bounce event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

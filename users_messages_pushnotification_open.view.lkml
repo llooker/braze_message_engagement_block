@@ -123,7 +123,7 @@ view: users_messages_pushnotification_open {
   dimension_group: push_opened_time {
     description: "timestamp of the push open event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

@@ -62,7 +62,7 @@ view: users_messages_email_markasspam {
   dimension_group: email_marked_as_spam_time {
     description: "timestamp the email was marked as spam"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

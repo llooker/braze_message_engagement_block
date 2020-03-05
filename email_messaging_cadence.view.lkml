@@ -77,7 +77,7 @@ view: email_messaging_cadence {
   }
 
   dimension_group: first_delivered {
-    description: "UTC epoch timestamp the first push was delivered to this user"
+    description: "UTC time timestamp the first push was delivered to this user"
     type: time
     timeframes: [date, time]
     sql: ${TABLE}."FIRST_DELIVERED" ;;
@@ -90,7 +90,7 @@ view: email_messaging_cadence {
   }
 
   dimension_group: delivery {
-    description: "UTC epoch timestamp the email was delivered"
+    description: "UTC time timestamp the email was delivered"
     type: time
     timeframes: [date, time, hour_of_day]
     sql: ${TABLE}."DELIVERED_TIMESTAMP" ;;

@@ -75,7 +75,7 @@ view: users_messages_inappmessage_click {
   dimension_group: click_time {
     description: "timestamp of the in-app-message click"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

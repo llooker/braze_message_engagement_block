@@ -77,7 +77,7 @@ view: users_canvas_conversion {
   dimension_group: converted_time {
     description: "timestamp of the conversion"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

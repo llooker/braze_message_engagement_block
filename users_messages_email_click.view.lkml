@@ -62,7 +62,7 @@ view: users_messages_email_click {
   dimension_group: email_clicked_time {
     description: "timestamp of the email click event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

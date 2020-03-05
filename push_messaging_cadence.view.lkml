@@ -36,7 +36,7 @@ LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_BOUNC
   }
 
   dimension_group: send {
-    description: "UTC epoch timestamp the push was sent"
+    description: "UTC time timestamp the push was sent"
     type: time
     timeframes: [date, time]
     sql: ${TABLE}."SEND_TIMESTAMP" ;;
@@ -86,7 +86,7 @@ LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_BOUNC
   }
 
   dimension_group: first_sent {
-    description: "UTC epoch timestamp the first push was sent to this user"
+    description: "UTC time timestamp the first push was sent to this user"
     type: time
     timeframes: [date, time]
     sql: ${TABLE}."FIRST_SENT" ;;

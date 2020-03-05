@@ -82,7 +82,7 @@ view: users_messages_inappmessage_impression {
   dimension_group: impression_time {
     description: "timestamp of the in-app-message impression"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

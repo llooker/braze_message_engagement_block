@@ -55,7 +55,7 @@ view: users_messages_email_send {
   dimension_group: email_send_time {
     description: "timestamp of the email send"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

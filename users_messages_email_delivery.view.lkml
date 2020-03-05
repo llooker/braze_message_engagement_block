@@ -62,7 +62,7 @@ view: users_messages_email_delivery {
   dimension_group: email_delivered_time {
     description: "timestamp of the email delivery"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

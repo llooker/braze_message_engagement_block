@@ -62,7 +62,7 @@ view: users_messages_email_open {
   dimension_group: email_opened_time {
     description: "timestamp of the email open"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,
