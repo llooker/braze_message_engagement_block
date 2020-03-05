@@ -292,8 +292,6 @@ explore: users_messages_pushnotification_send {
     relationship: one_to_many
     sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_open.user_id}
             AND
-            ${users_messages_pushnotification_send.device_id}=${users_messages_pushnotification_open.device_id}
-            AND
             (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_open.message_variation_id}
             OR
             ${users_messages_pushnotification_send.canvas_step_id}=${users_messages_pushnotification_open.canvas_step_id}) ;;
@@ -303,8 +301,6 @@ explore: users_messages_pushnotification_send {
     type: left_outer
     relationship: one_to_one
     sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_bounce.user_id}
-            AND
-            ${users_messages_pushnotification_send.device_id}=${users_messages_pushnotification_bounce.device_id}
             AND
             (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_bounce.message_variation_id}
             OR
@@ -319,8 +315,6 @@ explore: users_messages_pushnotification_send {
 #     type: left_outer
 #     relationship: one_to_many
 #     sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_iosforeground.user_id}
-#             AND
-#             ${users_messages_pushnotification_send.device_id}=${users_messages_pushnotification_iosforeground.device_id}
 #             AND
 #             (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_iosforeground.message_variation_id}
 #             OR
