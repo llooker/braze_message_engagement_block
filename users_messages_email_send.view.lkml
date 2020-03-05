@@ -1,6 +1,6 @@
 # Email Send Events
 view: users_messages_email_send {
-  sql_table_name: PUBLIC.USERS_MESSAGES_EMAIL_SEND ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_SEND ;;
 
   dimension: id {
     primary_key: yes

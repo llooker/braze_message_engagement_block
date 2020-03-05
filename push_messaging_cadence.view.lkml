@@ -18,15 +18,15 @@ view: push_messaging_cadence {
       min(send_timestamp) over (partition by send_user_id order by send_timestamp asc) as first_sent,
       datediff(day, lag(send_timestamp) over (partition by send_user_id order by send_timestamp asc), send_timestamp) as diff_days,
       datediff(week, lag(send_timestamp) over (partition by send_user_id order by send_timestamp asc), send_timestamp) as diff_weeks
-FROM PUBLIC.USERS_MESSAGES_PUSHNOTIFICATION_SEND AS sends
-LEFT JOIN PUBLIC.USERS_MESSAGES_PUSHNOTIFICATION_OPEN AS opens ON (sends.user_id)=(opens.user_id)
+FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_SEND AS sends
+LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_OPEN AS opens ON (sends.user_id)=(opens.user_id)
             AND
             (sends.device_id)=(opens.device_id)
             AND
             ((sends.message_variation_id)=(opens.message_variation_id)
             OR
             (sends.canvas_step_id)=(opens.canvas_step_id))
-LEFT JOIN PUBLIC.USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE AS bounces ON (sends.user_id)=(bounces.user_id)
+LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_BOUNCE AS bounces ON (sends.user_id)=(bounces.user_id)
             AND
             (sends.device_id)=(bounces.device_id)
             AND

@@ -78,7 +78,7 @@ include: "push_messaging_cadence.view"
 # Note: Uncomment the block below when doing Webhook message analytics
 #########################
 #
-# include: "users_messages_webhook_send.view.lkml"
+ include: "users_messages_webhook_send.view.lkml"
 #
 #########################
 
@@ -98,19 +98,19 @@ include: "push_marketing_pressure.dashboard"
 #
 # Note: Uncomment the block below when doing Campaign Conversion analytics
 #########################
-# explore: users_campaigns_conversion {
-#   label: "Campaign Conversions"
-#   view_label: "Campaign Conversions"
-#   join: users_campaigns_enrollincontrol { # only joining so we can have a "user in control" dimension--all its dimensions are hidden"
-#     view_label: "Enrolled in Control"
-#     type: left_outer
-#     relationship: many_to_one
-#     sql_on: ${users_campaigns_conversion.user_id}=${users_campaigns_enrollincontrol.user_id}
-#             AND
-#             ${users_campaigns_conversion.message_variation_id}=${users_campaigns_enrollincontrol.message_variation_id};;
-#   }
-# }
-#
+ explore: users_campaigns_conversion {
+   label: "Campaign Conversions"
+   view_label: "Campaign Conversions"
+   join: users_campaigns_enrollincontrol { # only joining so we can have a "user in control" dimension--all its dimensions are hidden"
+     view_label: "Enrolled in Control"
+     type: left_outer
+     relationship: many_to_one
+     sql_on: ${users_campaigns_conversion.user_id}=${users_campaigns_enrollincontrol.user_id}
+             AND
+             ${users_campaigns_conversion.message_variation_id}=${users_campaigns_enrollincontrol.message_variation_id};;
+   }
+ }
+
 #########################
 
 
@@ -119,19 +119,19 @@ include: "push_marketing_pressure.dashboard"
 #
 # Note: Uncomment the block below when doing Canvas Conversion analytics
 #########################
-# explore: users_canvas_conversion {
-#   label: "Canvas Conversions"
-#   view_label: "Canvas Conversions"
-#   join: users_canvas_entry {
-#     view_label: "Canvas Conversions"
-#     type: left_outer
-#     relationship: many_to_one
-#     sql_on: ${users_canvas_conversion.user_id}=${users_canvas_entry.user_id}
-#             AND
-#             ${users_canvas_conversion.canvas_variation_id}=${users_canvas_entry.canvas_variation_id};;
-#   }
-# }
-#
+  explore: users_canvas_conversion {
+   label: "Canvas Conversions"
+   view_label: "Canvas Conversions"
+   join: users_canvas_entry {
+     view_label: "Canvas Conversions"
+     type: left_outer
+     relationship: many_to_one
+     sql_on: ${users_canvas_conversion.user_id}=${users_canvas_entry.user_id}
+             AND
+             ${users_canvas_conversion.canvas_variation_id}=${users_canvas_entry.canvas_variation_id};;
+   }
+ }
+
 #########################
 
 
@@ -224,21 +224,21 @@ explore: email_messaging_cadence {}
 #
 # Note: Uncomment the block below when doing In-App Message analytics
 #########################
-# explore: users_messages_inappmessage_impression {
-#   label: "In-App Message Events"
-#   view_label: "IAM Impressions"
-#   join: users_messages_inappmessage_click {
-#     view_label: "IAM Clicks"
-#     type: left_outer
-#     relationship: one_to_many
-#     sql_on: ${users_messages_inappmessage_impression.user_id}=${users_messages_inappmessage_click.user_id}
-#             AND
-#             (${users_messages_inappmessage_impression.message_variation_id}=${users_messages_inappmessage_click.message_variation_id}
-#             OR
-#             ${users_messages_inappmessage_impression.canvas_step_id}=${users_messages_inappmessage_click.canvas_step_id}) ;;
-#   }
-# }
-#
+ explore: users_messages_inappmessage_impression {
+   label: "In-App Message Events"
+   view_label: "IAM Impressions"
+   join: users_messages_inappmessage_click {
+     view_label: "IAM Clicks"
+     type: left_outer
+     relationship: one_to_many
+     sql_on: ${users_messages_inappmessage_impression.user_id}=${users_messages_inappmessage_click.user_id}
+             AND
+             (${users_messages_inappmessage_impression.message_variation_id}=${users_messages_inappmessage_click.message_variation_id}
+             OR
+             ${users_messages_inappmessage_impression.canvas_step_id}=${users_messages_inappmessage_click.canvas_step_id}) ;;
+   }
+ }
+
 #########################
 
 
@@ -353,10 +353,10 @@ explore: push_messaging_cadence {}
 #
 # Note: Uncomment the block below when doing Webhook message analytics
 #########################
-#
-# explore: users_messages_webhook_send {
-#   label: "Webhook Events"
-#   view_label: "Webhook Send Events"
-# }
-#
+
+ explore: users_messages_webhook_send {
+   label: "Webhook Events"
+   view_label: "Webhook Send Events"
+ }
+
 #########################

@@ -1,6 +1,6 @@
 # Control Group Enrollment
 view: users_campaigns_enrollincontrol {
-  sql_table_name: PUBLIC.USERS_CAMPAIGNS_ENROLLINCONTROL ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_CAMPAIGN_ENROLLMENT ;;
 
   dimension: id {
     primary_key: yes

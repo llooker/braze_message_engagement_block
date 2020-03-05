@@ -13,19 +13,19 @@ view: email_messaging_cadence {
       min(delivered_timestamp) over (partition by delivered_address order by delivered_timestamp asc) as first_delivered,
       datediff(day, lag(delivered_timestamp) over (partition by delivered_address order by delivered_timestamp asc), delivered_timestamp) as diff_days,
       datediff(week, lag(delivered_timestamp) over (partition by delivered_address order by delivered_timestamp asc), delivered_timestamp) as diff_weeks
-      from PUBLIC.USERS_MESSAGES_EMAIL_DELIVERY group by 1,2,3,4,5,6,7),
+      from PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_DELIVERY group by 1,2,3,4,5,6,7),
 
       opens as
       (select distinct email_address as open_address,
       message_variation_id as o_message_variation_id,
       canvas_step_id as o_canvas_step_id
-      FROM PUBLIC.USERS_MESSAGES_EMAIL_OPEN),
+      FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_OPEN),
 
       clicks as
       (select distinct email_address as click_address,
       message_variation_id as c_message_variation_id,
       canvas_step_id as c_canvas_step_id
-      FROM PUBLIC.USERS_MESSAGES_EMAIL_CLICK)
+      FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_CLICK)
 
       SELECT * FROM deliveries
       LEFT JOIN opens
