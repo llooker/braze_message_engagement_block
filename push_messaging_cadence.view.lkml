@@ -1,7 +1,6 @@
 # Push Messaging Cadence
 view: push_messaging_cadence {
   sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_CADENCE ;;
-  }
 
   dimension_group: send {
     description: "UTC time timestamp the push was sent"
