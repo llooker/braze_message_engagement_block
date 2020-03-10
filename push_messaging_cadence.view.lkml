@@ -1,38 +1,6 @@
 # Push Messaging Cadence
 view: push_messaging_cadence {
-  derived_table: {
-    sql: select to_timestamp(sends.time) as send_timestamp,
-      sends.user_id as send_user_id,
-      bounces.user_id as bounce_user_id,
-      sends.message_variation_id as s_message_variation_id,
-      sends.canvas_step_id as s_canvas_step_id,
-      sends.campaign_name as s_campaign_name,
-      sends.canvas_name as s_canvas_name,
-      sends.platform as s_platform,
-      sends.id as send_id,
-      opens.id as open_id,
-      bounces.id as bounce_id,
-      rank() over (partition by send_user_id order by send_timestamp asc) as send_event,
-      iff(timediff(second, send_timestamp, to_timestamp(opens.time))=min(timediff(second, send_timestamp, to_timestamp(opens.time))) over (partition by open_id), true, false) as min_open_difference,
-      iff(timediff(second, send_timestamp, to_timestamp(bounces.time))=min(timediff(second, send_timestamp, to_timestamp(bounces.time))) over (partition by bounce_id), true, false) as min_bounce_difference,
-      min(send_timestamp) over (partition by send_user_id order by send_timestamp asc) as first_sent,
-      datediff(day, lag(send_timestamp) over (partition by send_user_id order by send_timestamp asc), send_timestamp) as diff_days,
-      datediff(week, lag(send_timestamp) over (partition by send_user_id order by send_timestamp asc), send_timestamp) as diff_weeks
-FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_SEND AS sends
-LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_OPEN AS opens ON (sends.user_id)=(opens.user_id)
-            AND
-            (sends.device_id)=(opens.device_id)
-            AND
-            ((sends.message_variation_id)=(opens.message_variation_id)
-            OR
-            (sends.canvas_step_id)=(opens.canvas_step_id))
-LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_BOUNCE AS bounces ON (sends.user_id)=(bounces.user_id)
-            AND
-            (sends.device_id)=(bounces.device_id)
-            AND
-            ((sends.message_variation_id)=(bounces.message_variation_id)
-            OR
-            (sends.canvas_step_id)=(bounces.canvas_step_id)) ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_CADENCE ;;
   }
 
   dimension_group: send {

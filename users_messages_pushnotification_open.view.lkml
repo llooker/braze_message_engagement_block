@@ -1,6 +1,6 @@
 # Push Open Events
 view: users_messages_pushnotification_open {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_OPEN ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_OPENS ;;
 
   dimension: id {
     primary_key: yes

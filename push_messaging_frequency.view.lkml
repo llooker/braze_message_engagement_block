@@ -1,34 +1,30 @@
 # Push Messaging Frequency
 view: push_messaging_frequency {
   derived_table: {
-    sql: SELECT * FROM
-        (select distinct
-        sends.user_id  as sent_user_id,
-        date_trunc({% parameter date_granularity %}, to_timestamp(sends.time)) as sent_time,
-        opens.id  as opened_id,
-        coalesce(count(distinct sends.id) over (partition by sent_user_id, sent_time),0)-coalesce(count(distinct bounces.id) over (partition by sent_user_id, sent_time),0) as frequency,
-        row_number() over (partition by sent_user_id, sent_time order by sent_time) as rank
-      FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_SEND as sends
-      LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_BOUNCE as bounces ON (sends.user_id)=(bounces.user_id)
-                  AND
-                  ((sends.message_variation_id)=(bounces.message_variation_id)
-                  OR
-                  (sends.canvas_step_id)=(bounces.canvas_step_id))
-      LEFT JOIN PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_PUSH_NOTIFICATION_OPEN as opens ON (sends.user_id)=(opens.user_id)
-                  AND
-                  ((sends.message_variation_id)=(opens.message_variation_id)
-                  OR
-                  (sends.canvas_step_id)=(opens.canvas_step_id))
-      WHERE
-      {% condition campaign_name %} sends.campaign_name {% endcondition %}
-      AND
-      {% condition canvas_name %} sends.canvas_name {% endcondition %}
-      AND
-      {% condition message_variation_id %} sends.message_variation_id {% endcondition %}
-      AND
-      {% condition canvas_name %} sends.canvas_step_id {% endcondition %}
-      AND
-      {% condition platform %} sends.platform {% endcondition %}) WHERE frequency > 0
+    sql: SELECT * FROM (
+        SELECT
+        sent_user_id,
+        date_trunc({% parameter date_granularity %}, to_timestamp(sent_time)) as sent_time,
+        opened_id,
+        frequency,
+        rank,
+        campaign_name,
+        canvas_name,
+        message_variation_id,
+        canvas_step_id,
+        platform
+        FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_FREQUENCY
+        WHERE
+        {% condition campaign_name %} campaign_name {% endcondition %}
+        AND
+        {% condition canvas_name %} canvas_name {% endcondition %}
+        AND
+        {% condition message_variation_id %} message_variation_id {% endcondition %}
+        AND
+        {% condition canvas_name %} canvas_step_id {% endcondition %}
+        AND
+        {% condition platform %} platform {% endcondition %}
+      ) WHERE frequency > 0
       ;;
   }
 
