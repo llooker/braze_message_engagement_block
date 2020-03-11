@@ -1,6 +1,6 @@
 # Campaign Conversions
 view: users_campaigns_conversion {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_CAMPAIGN_CONVERSION ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_CAMPAIGN_CONVERSION ;;
 
   dimension: id {
     primary_key: yes

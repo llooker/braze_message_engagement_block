@@ -1,6 +1,6 @@
 # Email Delivery Events
 view: users_messages_email_delivery {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_DELIVERY ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_DELIVERIES ;;
 
   dimension: id {
     primary_key: yes

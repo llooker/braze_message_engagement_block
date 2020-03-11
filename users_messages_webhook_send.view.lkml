@@ -1,6 +1,6 @@
 # Webhook Send Events
 view: users_messages_webhook_send {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_WEBHOOK_SEND ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_WEBHOOK_SENDS ;;
 
   dimension: id {
     primary_key: yes

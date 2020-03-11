@@ -1,6 +1,6 @@
 # Email Bounce Events
 view: users_messages_email_bounce {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_BOUNCE ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_BOUNCES ;;
 
   dimension: id {
     primary_key: yes

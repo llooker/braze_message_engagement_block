@@ -1,6 +1,6 @@
 # Email Marked as Spam Events
 view: users_messages_email_markasspam {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_SPAM ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_SPAM ;;
 
   dimension: id {
     primary_key: yes

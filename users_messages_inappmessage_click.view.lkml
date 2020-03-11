@@ -1,6 +1,6 @@
 # In-App Message Click Events
 view: users_messages_inappmessage_click {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_IN_APP_CLICK ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_IN_APP_CLICKS ;;
 
   dimension: id {
     primary_key: yes

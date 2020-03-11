@@ -1,6 +1,6 @@
 # Email Unsubscribe Events
 view: users_messages_email_unsubscribe {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_UNSUBSCRIPTION ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_UNSUB ;;
 
   dimension: id {
     primary_key: yes

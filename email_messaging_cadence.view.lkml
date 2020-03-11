@@ -1,41 +1,6 @@
 # Email Messaging Cadence
 view: email_messaging_cadence {
-  derived_table: {
-    sql: with deliveries as
-      (select TO_TIMESTAMP(time) AS delivered_timestamp,
-      email_address AS delivered_address,
-      message_variation_id as d_message_variation_id,
-      canvas_step_id as d_canvas_step_id,
-      campaign_name as d_campaign_name,
-      canvas_name as d_canvas_name,
-      id as delivered_id,
-      rank() over (partition by delivered_address order by delivered_timestamp asc) as delivery_event,
-      min(delivered_timestamp) over (partition by delivered_address order by delivered_timestamp asc) as first_delivered,
-      datediff(day, lag(delivered_timestamp) over (partition by delivered_address order by delivered_timestamp asc), delivered_timestamp) as diff_days,
-      datediff(week, lag(delivered_timestamp) over (partition by delivered_address order by delivered_timestamp asc), delivered_timestamp) as diff_weeks
-      from PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_DELIVERY group by 1,2,3,4,5,6,7),
-
-      opens as
-      (select distinct email_address as open_address,
-      message_variation_id as o_message_variation_id,
-      canvas_step_id as o_canvas_step_id
-      FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_OPEN),
-
-      clicks as
-      (select distinct email_address as click_address,
-      message_variation_id as c_message_variation_id,
-      canvas_step_id as c_canvas_step_id
-      FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_CLICK)
-
-      SELECT * FROM deliveries
-      LEFT JOIN opens
-      ON (deliveries.delivered_address)=(opens.open_address)
-      AND ((deliveries.d_message_variation_id)=(opens.o_message_variation_id) OR (deliveries.d_canvas_step_id)=(opens.o_canvas_step_id))
-      LEFT JOIN clicks
-      ON (deliveries.delivered_address)=(clicks.click_address)
-      AND ((deliveries.d_message_variation_id)=(clicks.c_message_variation_id) OR (deliveries.d_canvas_step_id)=(clicks.c_canvas_step_id))
-      ;;
-  }
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_CADENCE ;;
 
   dimension: campaign_name {
     description: "campaign name if from a campaign"

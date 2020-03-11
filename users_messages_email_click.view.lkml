@@ -1,6 +1,6 @@
 # Email Click Events
 view: users_messages_email_click {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_EMAIL_CLICK ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_CLICKS ;;
 
   dimension: id {
     primary_key: yes

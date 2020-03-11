@@ -1,6 +1,6 @@
 # In-App Message Impression Events
 view: users_messages_inappmessage_impression {
-  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.VW_MP_BRAZE_IN_APP_IMPRESSION ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_IN_APP_IMPRESSIONS ;;
 
   dimension: id {
     primary_key: yes
