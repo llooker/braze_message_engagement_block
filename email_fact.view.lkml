@@ -222,7 +222,7 @@ view: email_fact {
     description: "the IP address from which the message was sent (only use for email delivery measures)"
     hidden: yes
     type: string
-    drill_fields: [campaign_name,campaign_id,message_variation_id,canvas_step_id]
+    # drill_fields: [campaign_name,campaign_id,message_variation_id,canvas_step_id]
     sql: ${TABLE}."DELIVERIES_SENDING_IP" ;;
   }
 
@@ -680,7 +680,7 @@ view: email_fact {
     description: "the IP address from which the message was sent (only use for email bounce measures)"
     hidden: yes
     type: string
-    drill_fields: [campaign_name, campaign_id, message_variation_id,canvas_step_id]
+    # drill_fields: [campaign_name, campaign_id, message_variation_id,canvas_step_id]
     sql: ${TABLE}."BOUNCE_SENDING_IP" ;;
   }
 
