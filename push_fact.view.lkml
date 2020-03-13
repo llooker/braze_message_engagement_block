@@ -155,7 +155,6 @@ view: push_fact {
   #########################################
   
   dimension: open_id {
-    primary_key: yes
     description: "unique ID of the event"
     hidden: yes
     type: string
@@ -318,11 +317,10 @@ view: push_fact {
   }
 
   #########################################
-  #             OPEN
+  #             BOUNCE
   #########################################
 
   dimension: bounce_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string
