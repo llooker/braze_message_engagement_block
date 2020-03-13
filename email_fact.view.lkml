@@ -116,7 +116,6 @@ view: email_fact {
   #########################################
 
   dimension: deliveries_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string
@@ -258,7 +257,6 @@ view: email_fact {
   #########################################
 
   dimension: open_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string
@@ -416,7 +414,6 @@ view: email_fact {
   #                 CLICK
   #########################################
   dimension: click_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string
@@ -574,7 +571,6 @@ view: email_fact {
   #                 BOUNCE
   #########################################
   dimension: bounce_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string
@@ -709,7 +705,6 @@ view: email_fact {
   #########################################
 
   dimension: spam_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string
@@ -843,7 +838,6 @@ view: email_fact {
   #########################################
   
   dimension: unsub_id {
-    primary_key: yes
     description: "unique id of this event"
     hidden: yes
     type: string

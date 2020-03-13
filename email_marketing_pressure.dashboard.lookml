@@ -1002,8 +1002,8 @@
     interpolation: monotone
     listen:
       Date Range: email_fact.email_send_time_date
-      Campaign Name: email_fact.campaign_name
-      Canvas Name: email_fact.canvas_name
+      Campaign Name: email_fact.send_campaign_name
+      Canvas Name: email_fact.send_canvas_name
     row: 46
     col: 0
     width: 12
