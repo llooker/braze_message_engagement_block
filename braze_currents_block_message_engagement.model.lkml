@@ -61,6 +61,7 @@ include: "users_messages_pushnotification_open.view.lkml"
 include: "users_messages_pushnotification_send.view.lkml"
 include: "push_messaging_frequency.view"
 include: "push_messaging_cadence.view"
+include: "push_fact.view.lkml"
 
 
 #########################
@@ -285,29 +286,29 @@ explore: email_messaging_cadence {}
 #########################
 # Push Events Explore
 #########################
-explore: users_messages_pushnotification_send {
-  label: "Push Events"
-  view_label: "Push Sent"
-  join: users_messages_pushnotification_open {
-    view_label: "Push Opens"
-    type: left_outer
-    relationship: one_to_many
-    sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_open.user_id}
-            AND
-            (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_open.message_variation_id}
-            OR
-            ${users_messages_pushnotification_send.canvas_step_id}=${users_messages_pushnotification_open.canvas_step_id}) ;;
-  }
-  join: users_messages_pushnotification_bounce {
-    view_label: "Push Bounces"
-    type: left_outer
-    relationship: one_to_one
-    sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_bounce.user_id}
-            AND
-            (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_bounce.message_variation_id}
-            OR
-            ${users_messages_pushnotification_send.canvas_step_id}=${users_messages_pushnotification_bounce.canvas_step_id}) ;;
-  }
+# explore: users_messages_pushnotification_send {
+#   label: "Push Events"
+#   view_label: "Push Sent"
+#   join: users_messages_pushnotification_open {
+#     view_label: "Push Opens"
+#     type: left_outer
+#     relationship: one_to_many
+#     sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_open.user_id}
+#             AND
+#             (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_open.message_variation_id}
+#             OR
+#             ${users_messages_pushnotification_send.canvas_step_id}=${users_messages_pushnotification_open.canvas_step_id}) ;;
+#   }
+#   join: users_messages_pushnotification_bounce {
+#     view_label: "Push Bounces"
+#     type: left_outer
+#     relationship: one_to_one
+#     sql_on: ${users_messages_pushnotification_send.user_id}=${users_messages_pushnotification_bounce.user_id}
+#             AND
+#             (${users_messages_pushnotification_send.message_variation_id}=${users_messages_pushnotification_bounce.message_variation_id}
+#             OR
+#             ${users_messages_pushnotification_send.canvas_step_id}=${users_messages_pushnotification_bounce.canvas_step_id}) ;;
+#   }
 ########################
 # Note: Uncomment the block below when doing iOS foreground analytics
 ########################
@@ -323,7 +324,8 @@ explore: users_messages_pushnotification_send {
 #             ${users_messages_pushnotification_send.canvas_step_id}=${users_messages_pushnotification_iosforeground.canvas_step_id}) ;;
 #   }
 ########################
-}
+# }
+explore: push_fact {}
 
 #########################
 # Push Marketing Pressure
