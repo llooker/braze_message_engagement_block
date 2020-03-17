@@ -12,6 +12,7 @@ view: users_campaigns_conversion {
 
   dimension: app_id {
     description: "id of the app"
+    hidden: yes
     type: string
     sql: ${TABLE}."APP_ID" ;;
   }
@@ -87,6 +88,7 @@ view: users_campaigns_conversion {
 
   dimension: external_user_id {
     description: "External ID of the user"
+    hidden: yes
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }

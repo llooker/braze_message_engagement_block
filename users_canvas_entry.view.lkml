@@ -70,8 +70,8 @@ view: users_canvas_entry {
 
   dimension: in_control_group {
     description: "is the user in the control group for the canvas variation"
-    type: yesno
-    sql: ${TABLE}."IN_CONTROL_GROUP" ;;
+    type: string
+    sql: CASE WHEN ${TABLE}."IN_CONTROL_GROUP" IS NOT NULL THEN 'Yes' ELSE 'NO' END ;;
   }
 
   dimension: user_id {

@@ -82,6 +82,7 @@ view: email_fact {
 
   dimension: send_external_user_id {
     description: "External ID of the user"
+    hidden: yes
     type: string
     sql: ${TABLE}."SEND_EXTERNAL_USER_ID" ;;
   }

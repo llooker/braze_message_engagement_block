@@ -55,12 +55,14 @@ view: users_messages_inappmessage_impression {
 
   dimension: card_id {
     description: "API ID of the card this in app message comes from"
+    hidden: yes
     type: string
     sql: ${TABLE}."CARD_ID" ;;
   }
 
   dimension: device_id {
     description: "id of the device on which the event occurred"
+    hidden: yes
     type: string
     sql: ${TABLE}."DEVICE_ID" ;;
   }
@@ -112,6 +114,7 @@ view: users_messages_inappmessage_impression {
 
   dimension: os_version {
     description: "os version of device used for the action"
+    hidden: yes
     type: string
     sql: ${TABLE}."OS_VERSION" ;;
   }
@@ -124,6 +127,7 @@ view: users_messages_inappmessage_impression {
 
   dimension: send_id {
     description: "id of the message if specified for the campaign"
+    hidden: yes
     type: string
     sql: ${TABLE}."SEND_ID" ;;
   }

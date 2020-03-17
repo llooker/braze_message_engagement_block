@@ -48,6 +48,7 @@ view: users_messages_webhook_send {
 
   dimension: external_user_id {
     description: "External ID of the user"
+    hidden: yes
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }

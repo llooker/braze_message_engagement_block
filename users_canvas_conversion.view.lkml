@@ -12,6 +12,7 @@ view: users_canvas_conversion {
 
   dimension: app_id {
     description: "id for the app on which the user action occurred"
+    hidden: yes
     type: string
     sql: ${TABLE}."APP_ID" ;;
   }
@@ -99,6 +100,7 @@ view: users_canvas_conversion {
 
   dimension: external_user_id {
     description: "External ID of the user"
+    hidden: yes
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }
