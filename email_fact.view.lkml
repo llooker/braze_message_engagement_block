@@ -959,4 +959,15 @@ view: email_fact {
     value_format_name: percent_2
     sql:${email_unsubscribes}/NULLIF(${emails_sent},0) ;;
   }
+
+  ##################################################
+  #         MY MEASURES
+  #################################################
+  
+  measure: CTR {
+    description: "email unique clicks/emails unique opens"
+    type: number
+    value_format_name: percent_2
+    sql:${email_unique_clicks}/NULLIF(${email_unique_opens},0) ;;
+  }
 }
