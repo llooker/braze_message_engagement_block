@@ -74,7 +74,8 @@ view: push_messaging_frequency {
   }
 
   dimension: user_id {
-    description: "Braze id of the user"
+    label: "Email Address"
+    description: "Email address of user"
     type: string
     sql: ${TABLE}."SENT_USER_ID" ;;
   }

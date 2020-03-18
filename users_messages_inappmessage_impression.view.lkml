@@ -133,7 +133,8 @@ view: users_messages_inappmessage_impression {
   }
 
   dimension: user_id {
-    description: "Braze user id"
+    label: "Email Address"
+    description: "User Email Address"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }

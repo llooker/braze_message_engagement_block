@@ -106,7 +106,8 @@ view: users_canvas_conversion {
   }
 
   dimension: user_id {
-    description: "braze user id of the user"
+    label: "Email Address"
+    description: "Email address of user"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }

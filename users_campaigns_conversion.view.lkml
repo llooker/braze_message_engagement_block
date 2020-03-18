@@ -107,7 +107,8 @@ view: users_campaigns_conversion {
   }
 
   dimension: user_id {
-    description: "Braze user ID"
+    label: "Email Address"
+    description: "Email address of user"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }

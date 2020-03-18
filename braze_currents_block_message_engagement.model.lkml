@@ -221,7 +221,7 @@ explore: email_fact {
   join: message_variation_name {
     type: left_outer
     relationship: one_to_one
-    sql_on: ${email_fact.message_variation_id} = ${message_variation_name.message_variation_id} ;;
+    sql_on: ${email_fact.send_message_variation_id} = ${message_variation_name.message_variation_id} ;;
   }
 }
 

@@ -10,7 +10,8 @@ view: push_messaging_cadence {
   }
 
   dimension: user_id {
-    description: "Braze id of the user"
+    label: "Email Address"
+    description: "Email address of user"
     type: string
     sql: ${TABLE}."SEND_USER_ID" ;;
   }
