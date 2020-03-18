@@ -15,43 +15,50 @@ view: push_fact {
     sql: ${TABLE}."SEND_ID" ;;
   }
 
-  dimension: app_id {
+  dimension: send_app_id {
+    label: "App ID"
     description: "id of the app on which the user action occurred"
     type: string
     sql: ${TABLE}."SEND_APP_ID" ;;
   }
 
-  dimension: campaign_id {
+  dimension: send_campaign_id {
+    label: "Campaign ID"
     description: "id of the campaign if from a campaign"
     type: string
     sql: ${TABLE}."SEND_CAMPAIGN_ID" ;;
   }
 
-  dimension: campaign_name {
+  dimension: send_campaign_name {
+    label: "Campaign Name"
     description: "name of the campaign"
     type: string
     sql: ${TABLE}."SEND_CAMPAIGN_NAME" ;;
   }
 
-  dimension: canvas_id {
+  dimension: send_canvas_id {
+    label: "Canvas ID"
     description: "id of the Canvas if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_ID" ;;
   }
 
-  dimension: canvas_name {
+  dimension: send_canvas_name {
+    label: "Canvas Name"
     description: "canvas name"
     type: string
     sql: ${TABLE}."SEND_CANVAS_NAME" ;;
   }
 
-  dimension: canvas_step_id {
+  dimension: send_canvas_step_id {
+    label: "Canvas Step ID"
     description: "id of the step for this message if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_STEP_ID" ;;
   }
 
-  dimension: canvas_variation_id {
+  dimension: send_canvas_variation_id {
+    label: "Canvas Variation ID"
     description: "id of the Canvas variation the user is in if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_VARIATION_ID" ;;
@@ -71,13 +78,15 @@ view: push_fact {
     sql: ${TABLE}."SEND_EXTERNAL_USER_ID" ;;
   }
 
-  dimension: message_variation_id {
+  dimension: send_message_variation_id {
+    label: "Message Variation ID"
     description: "id of the message variation if from a campaign"
     type: string
     sql: ${TABLE}."SEND_MESSAGE_VARIATION_ID" ;;
   }
 
-  dimension: platform {
+  dimension: send_platform {
+    label: "Plataform"
     description: "platform of the device (iOS, Android, web, etc.)"
     type: string
     sql: ${TABLE}."SEND_PLATFORM" ;;
@@ -108,7 +117,8 @@ view: push_fact {
     sql: ${TABLE}."SEND_TIMEZONE" ;;
   }
 
-  dimension: email_address {
+  dimension: send_user_id {
+    label: "Email Address"
     description: "Email of the user"
     type: string
     sql: ${TABLE}."SEND_USER_ID" ;;
