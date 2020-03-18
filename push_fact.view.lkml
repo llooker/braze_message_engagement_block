@@ -109,7 +109,7 @@ view: push_fact {
   }
 
   dimension: email_address {
-    description: "Email of the user
+    description: "Email of the user"
     type: string
     sql: ${TABLE}."SEND_USER_ID" ;;
   }
