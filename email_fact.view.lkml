@@ -14,43 +14,43 @@ view: email_fact {
     sql: ${TABLE}."SEND_ID" ;;
   }
 
-  dimension: send_campaign_id {
+  dimension: campaign_id {
     description: "id of the campaign if from a campaign"
     type: string
     sql: ${TABLE}."SEND_CAMPAIGN_ID" ;;
   }
 
-  dimension: send_campaign_name {
+  dimension: campaign_name {
     description: "name of the campaign"
     type: string
     sql: ${TABLE}."SEND_CAMPAIGN_NAME" ;;
   }
 
-  dimension: send_canvas_id {
+  dimension: canvas_id {
     description: "id of the canvas if from a canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_ID" ;;
   }
 
-  dimension: send_canvas_name {
+  dimension: canvas_name {
     description: "name of the canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_NAME" ;;
   }
 
-  dimension: send_canvas_step_id {
+  dimension: canvas_step_id {
     description: "id of the step for this message if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_STEP_ID" ;;
   }
 
-  dimension: send_canvas_variation_id {
+  dimension: canvas_variation_id {
     description: "id of the Canvas variation the user is in if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_VARIATION_ID" ;;
   }
 
-  dimension: send_email_address {
+  dimension: email_address {
     description: "email address for this event"
     type: string
     sql: ${TABLE}."SEND_EMAIL_ADDRESS" ;;
@@ -88,7 +88,7 @@ view: email_fact {
     sql: ${TABLE}."SEND_EXTERNAL_USER_ID" ;;
   }
 
-  dimension: send_message_variation_id {
+  dimension: message_variation_id {
     description: "id of the message variation if from a campaign"
     type: string
     sql: ${TABLE}."SEND_MESSAGE_VARIATION_ID" ;;
@@ -103,6 +103,7 @@ view: email_fact {
 
   dimension: send_user_id {
     description: "Braze id of the user"
+    hidden: yes
     type: string
     sql: ${TABLE}."SEND_USER_ID" ;;
   }

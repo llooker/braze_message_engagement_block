@@ -15,43 +15,43 @@ view: push_fact {
     sql: ${TABLE}."SEND_ID" ;;
   }
 
-  dimension: send_app_id {
+  dimension: app_id {
     description: "id of the app on which the user action occurred"
     type: string
     sql: ${TABLE}."SEND_APP_ID" ;;
   }
 
-  dimension: send_campaign_id {
+  dimension: campaign_id {
     description: "id of the campaign if from a campaign"
     type: string
     sql: ${TABLE}."SEND_CAMPAIGN_ID" ;;
   }
 
-  dimension: send_campaign_name {
+  dimension: campaign_name {
     description: "name of the campaign"
     type: string
     sql: ${TABLE}."SEND_CAMPAIGN_NAME" ;;
   }
 
-  dimension: send_canvas_id {
+  dimension: canvas_id {
     description: "id of the Canvas if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_ID" ;;
   }
 
-  dimension: send_canvas_name {
+  dimension: canvas_name {
     description: "canvas name"
     type: string
     sql: ${TABLE}."SEND_CANVAS_NAME" ;;
   }
 
-  dimension: send_canvas_step_id {
+  dimension: canvas_step_id {
     description: "id of the step for this message if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_STEP_ID" ;;
   }
 
-  dimension: send_canvas_variation_id {
+  dimension: canvas_variation_id {
     description: "id of the Canvas variation the user is in if from a Canvas"
     type: string
     sql: ${TABLE}."SEND_CANVAS_VARIATION_ID" ;;
@@ -59,6 +59,7 @@ view: push_fact {
 
   dimension: send_device_id {
     description: "id of the device that we made a delivery attempt to"
+    hidden: yes
     type: string
     sql: ${TABLE}."SEND_DEVICE_ID" ;;
   }
@@ -70,23 +71,16 @@ view: push_fact {
     sql: ${TABLE}."SEND_EXTERNAL_USER_ID" ;;
   }
 
-  dimension: send_message_variation_id {
+  dimension: message_variation_id {
     description: "id of the message variation if from a campaign"
     type: string
     sql: ${TABLE}."SEND_MESSAGE_VARIATION_ID" ;;
   }
 
-  dimension: send_platform {
+  dimension: platform {
     description: "platform of the device (iOS, Android, web, etc.)"
     type: string
     sql: ${TABLE}."SEND_PLATFORM" ;;
-  }
-
-  dimension: send_send_id {
-    description: "id of the message if specified for the campaign"
-    hidden: yes
-    type: string
-    sql: ${TABLE}."SEND_SEND_ID" ;;
   }
 
   dimension_group: push_sent_time {
@@ -114,8 +108,8 @@ view: push_fact {
     sql: ${TABLE}."SEND_TIMEZONE" ;;
   }
 
-  dimension: send_user_id {
-    description: "Braze user id"
+  dimension: email_address {
+    description: "Email of the user
     type: string
     sql: ${TABLE}."SEND_USER_ID" ;;
   }
