@@ -214,7 +214,15 @@ include: "push_marketing_pressure.dashboard"
 #             ${users_messages_email_send.canvas_step_id}=${users_messages_email_markasspam.canvas_step_id});;
 #   }
 # }
-explore: email_fact {}
+explore: email_fact {
+  label: "Email Events"
+  view_label: "Email Events"
+  join: message_variation_name {
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${email_fact.send_message_variation_id} = ${message_variation_name.message_variation_id}
+  }
+}
 
 #########################
 # Email Marketing Pressure
