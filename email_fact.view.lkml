@@ -1,5 +1,6 @@
 # Email Fact
 view: email_fact {
+  view_label: "Email Events"
   sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_FACT ;;
   
   #########################################

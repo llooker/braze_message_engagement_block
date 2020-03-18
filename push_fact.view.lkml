@@ -1,5 +1,6 @@
 # Push Fact
 view: push_fact {
+  view_label: "Push Events"
   sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_FACT ;;
 
   #########################################
