@@ -47,8 +47,8 @@ view: users_messages_webhook_send {
   }
 
   dimension: external_user_id {
+    label: "External ID"
     description: "External ID of the user"
-    hidden: yes
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }
@@ -67,7 +67,8 @@ view: users_messages_webhook_send {
   }
 
   dimension: user_id {
-    description: "Braze user id"
+    label: "Email Address"
+    description: "Email address of the user"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }

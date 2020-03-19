@@ -87,8 +87,8 @@ view: users_campaigns_conversion {
   }
 
   dimension: external_user_id {
+    label: "External ID"
     description: "External ID of the user"
-    hidden: yes
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }
