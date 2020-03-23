@@ -2,7 +2,7 @@
 # Connection
 #########################
 connection: "snowflake"
-label: "E - Braze Events"
+label: "E - Block Braze Events"
 
 #########################
 # Conversion Views
