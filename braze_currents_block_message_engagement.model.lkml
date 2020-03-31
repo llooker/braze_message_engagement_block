@@ -335,7 +335,10 @@ explore: email_messaging_cadence {}
 #   }
 ########################
 # }
-explore: push_fact {}
+explore: push_fact {
+  label: "Push Events"
+  view_label: "Push Events"
+}
 
 #########################
 # Push Marketing Pressure
