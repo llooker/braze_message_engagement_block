@@ -124,6 +124,7 @@ view: users_campaigns_conversion {
   measure: campaign_conversion_event_count {
     description: "distinct count of campaign conversion behavior event IDs"
     type: count_distinct
+    hidden: yes
     sql: ${TABLE}."ID" ;;
   }
 
@@ -131,5 +132,11 @@ view: users_campaigns_conversion {
     description: "distinct count of Braze user IDs who converted on a campaign"
     type: count_distinct
     sql: ${TABLE}."USER_ID" ;;
+  }
+
+  measure: unique_conversion_event_count {
+    description: "distinct count of users who converted on a campaign"
+    type: count_distinct
+    sql: CASE WHEN ${conversion_custom_event_name} = 'AWAITING PAYMENT CONFIRMATION' THEN ${id} END ;;
   }
 }
