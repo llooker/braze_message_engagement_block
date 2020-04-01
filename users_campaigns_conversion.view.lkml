@@ -132,10 +132,4 @@ view: users_campaigns_conversion {
     type: count_distinct
     sql: ${TABLE}."USER_ID" ;;
   }
-
-  measure: unique_conversion_event {
-    description: "distinct count of users who converted on a campaign"
-    type: count_distinct
-    sql: CASE WHEN ${conversion_custom_event_name} = 'AWAITING PAYMENT CONFIRMATION' THEN (${id},${user_id}) ELSE Null END ;;
-  }
 }
