@@ -584,6 +584,13 @@ view: email_fact {
     sql:${email_unique_clicks}/NULLIF(${emails_delivered},0) ;;
   }
 
+  measure: click_on_image_share {
+    description: "unique click on image/unique click"
+    type: number
+    value_format_name: percent_2
+    sql:${email_unique_clicks_on_image}/NULLIF(${email_unique_clicks},0) ;;
+  }
+
   #########################################
   #                 BOUNCE
   #########################################
