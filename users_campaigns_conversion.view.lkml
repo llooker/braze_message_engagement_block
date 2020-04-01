@@ -131,6 +131,7 @@ view: users_campaigns_conversion {
   measure: unique_users_that_converted_on_a_campaign {
     description: "distinct count of Braze user IDs who converted on a campaign"
     type: count_distinct
+    hidden: yes
     sql: ${TABLE}."USER_ID" ;;
   }
 
