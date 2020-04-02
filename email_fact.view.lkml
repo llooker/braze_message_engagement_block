@@ -256,10 +256,10 @@ view: email_fact {
     sql:${emails_delivered}/NULLIF(${emails_sent},0) ;;
   }
 
-  measure: unique_recipients {
+  measure: unique_users {
     description: "distinct count of email addresses that received an email campaign"
     type: count_distinct
-    sql: ${TABLE}."DELIVERIES_EMAIL_ADDRESS" ;;
+    sql: ${TABLE}."SEND_EMAIL_ADDRESS" ;;
   }
 
 
