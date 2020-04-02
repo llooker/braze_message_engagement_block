@@ -543,7 +543,7 @@ view: email_fact {
   measure: email_unique_clicks_on_image {
     description: "distinct count of email click events on the image (does not count the same person clicking the same image more than once)"
     type: count_distinct
-    sql: CASE WHEN ${TABLE}."CLICK_URL" regexp '.+(\_\_).+(\_\_).+' THEN ${TABLE}."CLICK_ID" END ;;
+    sql: CASE WHEN ${TABLE}."CLICK_URL" regexp '.+(\_\_).+(\_\_).+' THEN ${TABLE}."CLICK_EMAIL_ADDRESS" END ;;
   }
 
   measure: email_total_clicks {
