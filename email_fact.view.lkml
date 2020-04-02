@@ -585,10 +585,10 @@ view: email_fact {
   }
 
   measure: click_on_image_share {
-    description: "unique click on image/email_total_clicks"
+    description: "unique click on image/email_unique_clicks"
     type: number
     value_format_name: percent_2
-    sql:${email_unique_clicks_on_image}/NULLIF(${email_total_clicks},0) ;;
+    sql:${email_unique_clicks_on_image}/NULLIF(${email_unique_clicks},0) ;;
   }
 
   #########################################
