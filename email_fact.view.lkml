@@ -122,6 +122,12 @@ view: email_fact {
     sql: ${TABLE}."SEND_ID" ;;
   }
 
+  measure: send_unique_users {
+    description: "distinct count of email addresses that an email campaign was sended"
+    type: count_distinct
+    sql: ${TABLE}."SEND_EMAIL_ADDRESS" ;;
+  }
+
   #########################################
   #                 DELIVERIES
   #########################################
@@ -256,12 +262,11 @@ view: email_fact {
     sql:${emails_delivered}/NULLIF(${emails_sent},0) ;;
   }
 
-  measure: unique_users {
+  measure: deliveries_unique_users {
     description: "distinct count of email addresses that received an email campaign"
     type: count_distinct
-    sql: ${TABLE}."SEND_EMAIL_ADDRESS" ;;
+    sql: ${TABLE}."DELIVERIES_EMAIL_ADDRESS" ;;
   }
-
 
   #########################################
   #                 OPEN
@@ -419,6 +424,12 @@ view: email_fact {
     type: number
     value_format_name: percent_2
     sql:${email_unique_opens}/NULLIF(${emails_delivered},0) ;;
+  }
+
+  measure: open_unique_users {
+    description: "distinct count of email addresses that opened an email campaign"
+    type: count_distinct
+    sql: ${TABLE}."OPEN_EMAIL_ADDRESS" ;;
   }
 
   #########################################
@@ -584,11 +595,17 @@ view: email_fact {
     sql:${email_unique_clicks}/NULLIF(${emails_delivered},0) ;;
   }
 
-  measure: click_on_image_share {
+  measure: image_share_of_clicks {
     description: "unique click on image/email_unique_clicks"
     type: number
     value_format_name: percent_2
     sql:${email_unique_clicks_on_image}/NULLIF(${email_unique_clicks},0) ;;
+  }
+
+  measure: click_unique_users {
+    description: "distinct count of email addresses that clicked on an email campaign"
+    type: count_distinct
+    sql: ${TABLE}."CLICK_EMAIL_ADDRESS" ;;
   }
 
   #########################################
@@ -724,6 +741,12 @@ view: email_fact {
     sql: ${email_bounces}/NULLIF(${emails_sent},0) ;;
   }
 
+  measure: bounce_unique_users {
+    description: "distinct count of email addresses that an email campaign bounced"
+    type: count_distinct
+    sql: ${TABLE}."BOUNCE_EMAIL_ADDRESS" ;;
+  }
+
   #########################################
   #                 SPAM
   #########################################
@@ -857,6 +880,12 @@ view: email_fact {
     sql: ${emails_marked_as_spam}/NULLIF(${emails_sent},0) ;;
   }
 
+  measure: spam_unique_users {
+    description: "distinct count of email addresses that marked an email as spam"
+    type: count_distinct
+    sql: ${TABLE}."SPAM_EMAIL_ADDRESS" ;;
+  }
+
   #########################################
   #                 UNSUB
   #########################################
@@ -981,6 +1010,12 @@ view: email_fact {
     type: number
     value_format_name: percent_2
     sql:${email_unsubscribes}/NULLIF(${emails_sent},0) ;;
+  }
+
+  measure: unsubscribe_unique_users {
+    description: "distinct count of email addresses that unsubscribed to a campaign"
+    type: count_distinct
+    sql: ${TABLE}."UNSUB_EMAIL_ADDRESS" ;;
   }
 
   ##################################################
