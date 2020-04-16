@@ -6,7 +6,7 @@ view: email_messaging_frequency {
         date_trunc({% parameter date_granularity %}, to_timestamp(DELIVERED_TIME_NOT_TRUNCED)) AS delivered_time,
         delivered_address,
         delivered_id,
-        count(distinct deliveried_id ) over (partition by delivered_time, delivered_address) AS frequency,
+        count(distinct delivered_id ) over (partition by delivered_time, delivered_address) AS frequency,
         row_number() over (partition by delivered_address, delivered_time order by delivered_time) as rank,
         opened_address,
         opened_mv_id,
