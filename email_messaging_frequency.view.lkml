@@ -12,13 +12,13 @@ view: email_messaging_frequency {
         clicks.email_address as clicked_address,
         clicks.message_variation_id as clicked_mv_id,
         clicks.canvas_step_id as clicked_cs_id
-        FROM prod_analytics.analytics_staging.vw_stg_braze_email_deliveries  AS deliveries
-        LEFT JOIN prod_analytics.analytics_staging.vw_stg_braze_email_opens  AS opens ON (deliveries.email_address)=(opens.email_address)
+        FROM prod_analytics.analytics_processed.vw_stg_braze_email_deliveries  AS deliveries
+        LEFT JOIN prod_analytics.analytics_processed.vw_stg_braze_email_opens  AS opens ON (deliveries.email_address)=(opens.email_address)
                     AND
                     ((deliveries.message_variation_id)=(opens.message_variation_id)
                     OR
                     (deliveries.canvas_step_id)=(opens.canvas_step_id))
-        LEFT JOIN prod_analytics.analytics_staging.vw_stg_braze_email_clicks  AS clicks ON (deliveries.email_address)=(clicks.email_address)
+        LEFT JOIN prod_analytics.analytics_processed.vw_stg_braze_email_clicks  AS clicks ON (deliveries.email_address)=(clicks.email_address)
                     AND
                     ((deliveries.message_variation_id)=(clicks.message_variation_id)
                     OR
