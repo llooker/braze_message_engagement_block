@@ -1,36 +1,32 @@
 # Email Messaging Frequency
 view: email_messaging_frequency {
   derived_table: {
-    sql: SELECT date_trunc({% parameter date_granularity %}, to_timestamp(deliveries.time)) AS delivered_time,
-        deliveries.email_address  AS delivered_address,
-        deliveries.ID as delivered_id,
-        count(distinct deliveries.id ) over (partition by delivered_time, delivered_address) AS frequency,
+    sql: 
+        SELECT
+        date_trunc({% parameter date_granularity %}, to_timestamp(DELIVERED_TIME_NOT_TRUNCED)) AS delivered_time,
+        delivered_address,
+        delivered_id,
+        count(distinct deliveried_id ) over (partition by delivered_time, delivered_address) AS frequency,
         row_number() over (partition by delivered_address, delivered_time order by delivered_time) as rank,
-        opens.email_address as opened_address,
-        opens.message_variation_id as opened_mv_id,
-        opens.canvas_step_id as opened_cs_id,
-        clicks.email_address as clicked_address,
-        clicks.message_variation_id as clicked_mv_id,
-        clicks.canvas_step_id as clicked_cs_id
-        FROM prod_analytics.analytics_processed.vw_stg_braze_email_deliveries  AS deliveries
-        LEFT JOIN prod_analytics.analytics_processed.vw_stg_braze_email_opens  AS opens ON (deliveries.email_address)=(opens.email_address)
-                    AND
-                    ((deliveries.message_variation_id)=(opens.message_variation_id)
-                    OR
-                    (deliveries.canvas_step_id)=(opens.canvas_step_id))
-        LEFT JOIN prod_analytics.analytics_processed.vw_stg_braze_email_clicks  AS clicks ON (deliveries.email_address)=(clicks.email_address)
-                    AND
-                    ((deliveries.message_variation_id)=(clicks.message_variation_id)
-                    OR
-                    (deliveries.canvas_step_id)=(clicks.canvas_step_id))
+        opened_address,
+        opened_mv_id,
+        opened_cs_id,
+        clicked_address,
+        clicked_mv_id,
+        clicked_cs_id,
+        campaign_name,
+        canvas_name,
+        message_variation_id,
+        canvas_step_id
+        FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_FREQUENCY
       WHERE
-      {% condition campaign_name %} deliveries.campaign_name {% endcondition %}
+      {% condition campaign_name %} campaign_name {% endcondition %}
       AND
-      {% condition canvas_name %} deliveries.canvas_name {% endcondition %}
+      {% condition canvas_name %} canvas_name {% endcondition %}
       AND
-      {% condition message_variation_id %} deliveries.message_variation_id {% endcondition %}
+      {% condition message_variation_id %} message_variation_id {% endcondition %}
       AND
-      {% condition canvas_name %} deliveries.canvas_step_id {% endcondition %}
+      {% condition canvas_name %} canvas_step_id {% endcondition %}
       ;;
   }
 

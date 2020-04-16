@@ -4,10 +4,10 @@ view: push_messaging_frequency {
     sql: SELECT * FROM (
         SELECT
         sent_user_id,
-        date_trunc({% parameter date_granularity %}, to_timestamp(sent_time)) as sent_time,
+        date_trunc({% parameter date_granularity %}, to_timestamp(sent_time_not_trunced)) as sent_time,
         opened_id,
-        frequency,
-        rank,
+        coalesce(count(distinct send_id) over (partition by sent_user_id, sent_time),0) as frequency,
+        row_number() over (partition by sent_user_id, sent_time order by sent_time) as rank
         campaign_name,
         canvas_name,
         message_variation_id,
