@@ -1049,6 +1049,7 @@ view: email_fact {
   #################################################
   
   measure: CTR {
+    group_label: "Clicks"
     description: "email unique clicks/emails unique opens"
     label: "CTR"
     type: number

@@ -17,7 +17,9 @@ view: email_messaging_frequency {
         campaign_name,
         canvas_name,
         message_variation_id,
-        canvas_step_id
+        canvas_step_id,
+        spam_id,
+        unsub_id
         FROM PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_FREQUENCY
       WHERE
       {% condition campaign_name %} campaign_name {% endcondition %}
@@ -159,6 +161,32 @@ view: email_messaging_frequency {
     type: number
     value_format_name: percent_2
     sql: ${unique_opens}/NULLIF(${emails_delivered},0) ;;
+  }
+
+  measure: email_unsubscribes {
+    description: "distinct count of unsubscribe events"
+    type: count_distinct
+    sql: ${TABLE}."UNSUB_ID" ;;
+  }
+
+  measure: emails_marked_as_spam {
+    description: "distinct count of marked-as-spam event IDs"
+    type: count_distinct
+    sql: ${TABLE}."SPAM_ID" ;;
+  }
+
+  measure: email_unsubscribe_rate {
+    description: "email unsubscribes/emails delivered"
+    type: number
+    value_format_name: percent_2
+    sql:${email_unsubscribes}/NULLIF(${emails_delivered},0) ;;
+  }
+  
+  measure: marked_as_spam_rate {
+    description: "emails marked as spam/emails sent"
+    type: number
+    value_format_name: percent_2
+    sql: ${emails_marked_as_spam}/NULLIF(${emails_delivered},0) ;;
   }
 
   measure: unique_recipients {
