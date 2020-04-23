@@ -117,12 +117,14 @@ view: email_fact {
   }
 
   measure: emails_sent {
+    group_label: "Sends"
     description: "distinct count of email send event IDs"
     type: count_distinct
     sql: ${TABLE}."SEND_ID" ;;
   }
 
   measure: send_unique_users {
+    group_label: "Sends"
     description: "distinct count of email addresses that an email campaign was sended"
     type: count_distinct
     sql: ${TABLE}."SEND_EMAIL_ADDRESS" ;;
@@ -250,12 +252,14 @@ view: email_fact {
   }
 
   measure: emails_delivered {
+    group_label: "Deliveries"
     description: "distinct count of email delivery event IDs"
     type: count_distinct
     sql: ${TABLE}."DELIVERIES_ID" ;;
   }
 
   measure: email_delivery_rate {
+    group_label: "Deliveries"
     description: "emails delivered/emails sent"
     type: number
     value_format_name: percent_2
@@ -263,6 +267,7 @@ view: email_fact {
   }
 
   measure: deliveries_unique_users {
+    group_label: "Deliveries"
     description: "distinct count of email addresses that received an email campaign"
     type: count_distinct
     sql: ${TABLE}."DELIVERIES_EMAIL_ADDRESS" ;;
@@ -389,12 +394,14 @@ view: email_fact {
   }
 
   measure: email_total_opens {
+    group_label: "Opens"
     description: "distinct count of email open events (counts users opening an email more than once)"
     type: count_distinct
     sql: ${TABLE}."OPEN_ID" ;;
   }
 
   measure: email_total_open_rate {
+    group_label: "Opens"
     description: "total opens/emails delivered--may be over 100% at the user level"
     type: number
     value_format_name: percent_2
@@ -414,12 +421,14 @@ view: email_fact {
   }
 
   measure: email_unique_opens {
+    group_label: "Opens"
     description: "distinct count of times a recipient opened an email campaign or canvas (does not count the same person opening the same campaign or canvas more than once)"
     type: number
     sql: ${email_unique_opens_mvid}+${email_unique_opens_csid} ;;
   }
 
   measure: email_unique_open_rate {
+    group_label: "Opens"
     description: "unique opens/emails delivered"
     type: number
     value_format_name: percent_2
@@ -427,6 +436,7 @@ view: email_fact {
   }
 
   measure: open_unique_users {
+    group_label: "Opens"
     description: "distinct count of email addresses that opened an email campaign"
     type: count_distinct
     sql: ${TABLE}."OPEN_EMAIL_ADDRESS" ;;
@@ -552,18 +562,21 @@ view: email_fact {
   }
 
   measure: email_unique_clicks_on_image {
+    group_label: "Clicks"
     description: "distinct count of email click events on the image (does not count the same person clicking the same image more than once)"
     type: count_distinct
     sql: CASE WHEN ${TABLE}."CLICK_URL" regexp '.+(\_\_).+(\_\_).+' THEN ${TABLE}."CLICK_EMAIL_ADDRESS" END ;;
   }
 
   measure: email_total_clicks {
+    group_label: "Clicks"
     description: "distinct count of email click events (counts users opening an email more than once)"
     type: count_distinct
     sql: ${TABLE}."CLICK_ID" ;;
   }
 
   measure: email_total_click_rate {
+    group_label: "Clicks"
     description: "total clicks/emails delivered--may be over 100% at the user level"
     type: number
     value_format_name: percent_2
@@ -583,12 +596,14 @@ view: email_fact {
   }
 
   measure: email_unique_clicks {
+    group_label: "Clicks"
     description: "distinct count of times a recipient clicked an email campaign or canvas (does not count the same person clicking the same campaign or canvas more than once)"
     type: number
     sql: ${email_unique_clicks_mvid}+${email_unique_clicks_csid} ;;
   }
 
   measure: email_unique_click_rate {
+    group_label: "Clicks"
     description: "unique clicks/emails delivered"
     type: number
     value_format_name: percent_2
@@ -596,6 +611,7 @@ view: email_fact {
   }
 
   measure: image_share_of_clicks {
+    group_label: "Clicks"
     description: "unique click on image/email_unique_clicks"
     type: number
     value_format_name: percent_2
@@ -603,6 +619,7 @@ view: email_fact {
   }
 
   measure: click_unique_users {
+    group_label: "Clicks"
     description: "distinct count of email addresses that clicked on an email campaign"
     type: count_distinct
     sql: ${TABLE}."CLICK_EMAIL_ADDRESS" ;;
@@ -729,12 +746,14 @@ view: email_fact {
   }
 
   measure: email_bounces {
+    group_label: "Bounces"
     description: "distinct count of email bounce event IDs"
     type: count_distinct
     sql: ${TABLE}."BOUNCE_ID" ;;
   }
 
   measure: email_bounce_rate {
+    group_label: "Bounces"
     description: "email (hard) bounces/emails sent--may be over 100% at the user level"
     type: number
     value_format_name: percent_2
@@ -742,6 +761,7 @@ view: email_fact {
   }
 
   measure: bounce_unique_users {
+    group_label: "Bounces"
     description: "distinct count of email addresses that an email campaign bounced"
     type: count_distinct
     sql: ${TABLE}."BOUNCE_EMAIL_ADDRESS" ;;
@@ -868,12 +888,14 @@ view: email_fact {
   }
 
   measure: emails_marked_as_spam {
+    group_label: "Spam"
     description: "distinct count of marked-as-spam event IDs"
     type: count_distinct
     sql: ${TABLE}."SPAM_ID" ;;
   }
 
   measure: marked_as_spam_rate {
+    group_label: "Spam"
     description: "emails marked as spam/emails sent"
     type: number
     value_format_name: percent_2
@@ -881,6 +903,7 @@ view: email_fact {
   }
 
   measure: spam_unique_users {
+    group_label: "Spam"
     description: "distinct count of email addresses that marked an email as spam"
     type: count_distinct
     sql: ${TABLE}."SPAM_EMAIL_ADDRESS" ;;
@@ -1000,12 +1023,14 @@ view: email_fact {
   }
 
   measure: email_unsubscribes {
+    group_label: "Unsubscribe"
     description: "distinct count of email addresses that have unsubscribed"
     type: count_distinct
     sql: ${TABLE}."UNSUB_EMAIL_ADDRESS" ;;
   }
 
   measure: email_unsubscribe_rate {
+    group_label: "Unsubscribe"
     description: "email unsubscribes/emails delivered"
     type: number
     value_format_name: percent_2
@@ -1013,6 +1038,7 @@ view: email_fact {
   }
 
   measure: unsubscribe_unique_users {
+    group_label: "Unsubscribe"
     description: "distinct count of email addresses that unsubscribed to a campaign"
     type: count_distinct
     sql: ${TABLE}."UNSUB_EMAIL_ADDRESS" ;;
