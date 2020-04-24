@@ -561,6 +561,12 @@ view: email_fact {
     sql: ${TABLE}."CLICK_USER_ID" ;;
   }
 
+  dimension: click_destination {
+    description: "To which destination the person went when clicked"
+    type: string
+    sql: ${TABLE}."CLICK_DESTINATION" ;;
+  }
+
   measure: email_unique_clicks_on_image {
     group_label: "Clicks"
     description: "distinct count of email click events on the image (does not count the same person clicking the same image more than once)"
