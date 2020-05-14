@@ -69,13 +69,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."SEND_TIME" ;;
@@ -196,13 +205,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."DELIVERIES_TIME" ;;
@@ -339,13 +357,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."OPEN_TIME" ;;
@@ -507,13 +534,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."CLICK_TIME" ;;
@@ -696,13 +732,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."BOUNCE_TIME" ;;
@@ -839,13 +884,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."SPAM_TIME" ;;
@@ -981,13 +1035,22 @@ view: email_fact {
      
     timeframes: [
       raw,
+      minute,
+      minute10,
+      minute20,
+      minute30,
+      hour,
+      hour_of_day,
       time,
       date,
-      day_of_week,
-      hour_of_day,
       week,
+      day_of_week,
+      week_of_year,
+      day_of_month,
       month,
       quarter,
+      quarter_of_year,
+      month_num,
       year
     ]
     sql: ${TABLE}."UNSUB_TIME" ;;
