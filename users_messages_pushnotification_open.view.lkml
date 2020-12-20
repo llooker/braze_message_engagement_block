@@ -1,6 +1,6 @@
 # Push Open Events
 view: users_messages_pushnotification_open {
-  sql_table_name: PUBLIC.USERS_MESSAGES_PUSHNOTIFICATION_OPEN ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_OPENS ;;
 
   dimension: id {
     primary_key: yes
@@ -123,7 +123,7 @@ view: users_messages_pushnotification_open {
   dimension_group: push_opened_time {
     description: "timestamp of the push open event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

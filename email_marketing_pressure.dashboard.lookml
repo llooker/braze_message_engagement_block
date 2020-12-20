@@ -927,17 +927,17 @@
   - title: Email Marketing Pressure and Engagement by Hour
     name: Email Marketing Pressure and Engagement by Hour
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     type: looker_line
     fields:
-    - users_messages_email_send.email_send_time_hour_of_day
-    - users_messages_email_open.email_unique_open_rate
-    - users_messages_email_click.email_unique_click_rate
-    - users_messages_email_delivery.emails_delivered
+    - email_fact.email_send_time_hour_of_day
+    - email_fact.email_unique_open_rate
+    - email_fact.email_unique_click_rate
+    - email_fact.emails_delivered
     fill_fields:
-    - users_messages_email_send.email_send_time_hour_of_day
+    - email_fact.email_send_time_hour_of_day
     sorts:
-    - users_messages_email_send.email_send_time_hour_of_day
+    - email_fact.email_send_time_hour_of_day
     limit: 500
     query_timezone: America/New_York
     trellis: ''
@@ -950,19 +950,19 @@
     show_view_names: false
     point_style: none
     series_labels:
-      users_messages_email_open.email_unique_open_rate: Unique Open Rate
-      users_messages_email_click.email_unique_click_rate: Unique Click Rate
+      email_fact.email_unique_open_rate: Unique Open Rate
+      email_fact.email_unique_click_rate: Unique Click Rate
     series_types:
-      users_messages_email_send.emails_sent: column
-      users_messages_email_delivery.emails_delivered: column
+      email_fact.emails_sent: column
+      email_fact.emails_delivered: column
     limit_displayed_rows: false
     y_axes:
     - label: ''
       orientation: left
       series:
-      - id: users_messages_email_delivery.emails_delivered
+      - id: email_fact.emails_delivered
         name: Emails Delivered
-        axisId: users_messages_email_delivery.emails_delivered
+        axisId: email_fact.emails_delivered
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -972,12 +972,12 @@
     - label: Engagement Rates
       orientation: right
       series:
-      - id: users_messages_email_open.email_unique_open_rate
+      - id: email_fact.email_unique_open_rate
         name: Unique Open Rate
-        axisId: users_messages_email_open.email_unique_open_rate
-      - id: users_messages_email_click.email_unique_click_rate
+        axisId: email_fact.email_unique_open_rate
+      - id: email_fact.email_unique_click_rate
         name: Unique Click Rate
-        axisId: users_messages_email_click.email_unique_click_rate
+        axisId: email_fact.email_unique_click_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -1001,9 +1001,9 @@
     show_null_points: true
     interpolation: monotone
     listen:
-      Date Range: users_messages_email_send.email_send_time_date
-      Campaign Name: users_messages_email_send.campaign_name
-      Canvas Name: users_messages_email_send.canvas_name
+      Date Range: email_fact.email_send_time_date
+      Campaign Name: email_fact.send_campaign_name
+      Canvas Name: email_fact.send_canvas_name
     row: 46
     col: 0
     width: 12
@@ -1011,17 +1011,17 @@
   - title: Email Marketing Pressure and Engagement by Day
     name: Email Marketing Pressure and Engagement by Day
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     type: looker_line
     fields:
-    - users_messages_email_send.email_send_time_day_of_week
-    - users_messages_email_open.email_unique_open_rate
-    - users_messages_email_click.email_unique_click_rate
-    - users_messages_email_delivery.emails_delivered
+    - email_fact.email_send_time_day_of_week
+    - email_fact.email_unique_open_rate
+    - email_fact.email_unique_click_rate
+    - email_fact.emails_delivered
     fill_fields:
-    - users_messages_email_send.email_send_time_day_of_week
+    - email_fact.email_send_time_day_of_week
     sorts:
-    - users_messages_email_send.email_send_time_day_of_week
+    - email_fact.email_send_time_day_of_week
     limit: 500
     query_timezone: America/New_York
     trellis: ''
@@ -1034,19 +1034,19 @@
     show_view_names: false
     point_style: none
     series_labels:
-      users_messages_email_click.email_unique_click_rate: Unique Click Rate
-      users_messages_email_open.email_unique_open_rate: Unique Open Rate
+      email_fact.email_unique_click_rate: Unique Click Rate
+      email_fact.email_unique_open_rate: Unique Open Rate
     series_types:
-      users_messages_email_send.emails_sent: column
-      users_messages_email_delivery.emails_delivered: column
+      email_fact.emails_sent: column
+      email_fact.emails_delivered: column
     limit_displayed_rows: false
     y_axes:
     - label: ''
       orientation: left
       series:
-      - id: users_messages_email_delivery.emails_delivered
+      - id: email_fact.emails_delivered
         name: Emails Delivered
-        axisId: users_messages_email_delivery.emails_delivered
+        axisId: email_fact.emails_delivered
       showLabels: true
       showValues: false
       unpinAxis: false
@@ -1056,12 +1056,12 @@
     - label: Engagement Rates
       orientation: right
       series:
-      - id: users_messages_email_open.email_unique_open_rate
+      - id: email_fact.email_unique_open_rate
         name: Unique Open Rate
-        axisId: users_messages_email_open.email_unique_open_rate
-      - id: users_messages_email_click.email_unique_click_rate
+        axisId: email_fact.email_unique_open_rate
+      - id: email_fact.email_unique_click_rate
         name: Unique Click Rate
-        axisId: users_messages_email_click.email_unique_click_rate
+        axisId: email_fact.email_unique_click_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -1085,9 +1085,9 @@
     show_null_points: true
     interpolation: monotone
     listen:
-      Date Range: users_messages_email_send.email_send_time_date
-      Campaign Name: users_messages_email_send.campaign_name
-      Canvas Name: users_messages_email_send.canvas_name
+      Date Range: email_fact.email_send_time_date
+      Campaign Name: email_fact.send_campaign_name
+      Canvas Name: email_fact.send_canvas_name
     row: 46
     col: 12
     width: 12
@@ -1106,9 +1106,9 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     listens_to_filters: []
-    field: users_messages_email_send.campaign_name
+    field: email_fact.send_campaign_name
   - name: Canvas Name
     title: Canvas Name
     type: field_filter
@@ -1116,6 +1116,6 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     listens_to_filters: []
-    field: users_messages_email_send.canvas_name
+    field: email_fact.send_canvas_name

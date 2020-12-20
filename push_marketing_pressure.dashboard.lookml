@@ -16,16 +16,16 @@
   - title: Push Marketing Pressure and Engagement by Hour
     name: Push Marketing Pressure and Engagement by Hour
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     type: looker_line
     fields:
-    - users_messages_pushnotification_send.push_sent_time_hour_of_day
-    - users_messages_pushnotification_open.push_open_rate
-    - users_messages_pushnotification_send.push_sent
+    -  push_fact.push_sent_time_hour_of_day
+    -  push_fact.push_open_rate
+    -  push_fact.push_sent
     fill_fields:
-    - users_messages_pushnotification_send.push_sent_time_hour_of_day
+    -  push_fact.push_sent_time_hour_of_day
     sorts:
-    - users_messages_pushnotification_send.push_sent_time_hour_of_day
+    -  push_fact.push_sent_time_hour_of_day
     limit: 500
     stacking: ''
     show_value_labels: false
@@ -36,17 +36,17 @@
     show_view_names: false
     point_style: none
     series_colors:
-      users_messages_pushnotification_send.push_sent: "#FFCEB3"
+       push_fact.push_sent: "#FFCEB3"
     series_types:
-      users_messages_pushnotification_send.push_sent: column
+       push_fact.push_sent: column
     limit_displayed_rows: false
     y_axes:
     - label: ''
       orientation: left
       series:
-      - id: users_messages_pushnotification_send.push_sent
+      - id:  push_fact.push_sent
         name: Push Sent
-        axisId: users_messages_pushnotification_send.push_sent
+        axisId:  push_fact.push_sent
         __FILE: looker_blocks/push_marketing_pressure.dashboard.lookml
         __LINE_NUM: 56
       showLabels: true
@@ -60,9 +60,9 @@
     - label:
       orientation: right
       series:
-      - id: users_messages_pushnotification_open.push_open_rate
+      - id:  push_fact.push_open_rate
         name: Push Open Rate
-        axisId: users_messages_pushnotification_open.push_open_rate
+        axisId:  push_fact.push_open_rate
         __FILE: looker_blocks/push_marketing_pressure.dashboard.lookml
         __LINE_NUM: 68
       showLabels: true
@@ -95,10 +95,10 @@
     show_silhouette: false
     totals_color: "#808080"
     listen:
-      Date Range: users_messages_pushnotification_send.push_sent_time_date
-      Platform: users_messages_pushnotification_send.platform
-      Campaign Name: users_messages_pushnotification_send.campaign_name
-      Canvas Name: users_messages_pushnotification_send.canvas_name
+      Date Range:  push_fact.push_sent_time_date
+      Platform:  push_fact.send_platform
+      Campaign Name:  push_fact.send_campaign_name
+      Canvas Name:  push_fact.send_canvas_name
     row: 44
     col: 0
     width: 12
@@ -106,16 +106,16 @@
   - title: Push Marketing Pressure and Engagement by Day of Week
     name: Push Marketing Pressure and Engagement by Day of Week
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     type: looker_line
     fields:
-    - users_messages_pushnotification_open.push_open_rate
-    - users_messages_pushnotification_send.push_sent
-    - users_messages_pushnotification_send.push_sent_time_day_of_week
+    -  push_fact.push_open_rate
+    -  push_fact.push_sent
+    -  push_fact.push_sent_time_day_of_week
     fill_fields:
-    - users_messages_pushnotification_send.push_sent_time_day_of_week
+    -  push_fact.push_sent_time_day_of_week
     sorts:
-    - users_messages_pushnotification_send.push_sent_time_day_of_week
+    -  push_fact.push_sent_time_day_of_week
     limit: 500
     stacking: ''
     show_value_labels: false
@@ -126,17 +126,17 @@
     show_view_names: false
     point_style: none
     series_colors:
-      users_messages_pushnotification_send.push_sent: "#FFCEB3"
+       push_fact.push_sent: "#FFCEB3"
     series_types:
-      users_messages_pushnotification_send.push_sent: column
+       push_fact.push_sent: column
     limit_displayed_rows: false
     y_axes:
     - label: ''
       orientation: left
       series:
-      - id: users_messages_pushnotification_send.push_sent
+      - id:  push_fact.push_sent
         name: Push Sent
-        axisId: users_messages_pushnotification_send.push_sent
+        axisId:  push_fact.push_sent
         __FILE: looker_blocks/push_marketing_pressure.dashboard.lookml
         __LINE_NUM: 138
       showLabels: true
@@ -150,9 +150,9 @@
     - label:
       orientation: right
       series:
-      - id: users_messages_pushnotification_open.push_open_rate
+      - id:  push_fact.push_open_rate
         name: Push Open Rate
-        axisId: users_messages_pushnotification_open.push_open_rate
+        axisId:  push_fact.push_open_rate
         __FILE: looker_blocks/push_marketing_pressure.dashboard.lookml
         __LINE_NUM: 150
       showLabels: true
@@ -185,10 +185,10 @@
     show_silhouette: false
     totals_color: "#808080"
     listen:
-      Date Range: users_messages_pushnotification_send.push_sent_time_date
-      Platform: users_messages_pushnotification_send.platform
-      Campaign Name: users_messages_pushnotification_send.campaign_name
-      Canvas Name: users_messages_pushnotification_send.canvas_name
+      Date Range:  push_fact.push_sent_time_date
+      Platform:  push_fact.send_platform
+      Campaign Name:  push_fact.send_campaign_name
+      Canvas Name:  push_fact.send_canvas_name
     row: 44
     col: 12
     width: 12
@@ -710,9 +710,9 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     listens_to_filters: []
-    field: users_messages_pushnotification_send.platform
+    field:  push_fact.send_platform
   - name: Campaign Name
     title: Campaign Name
     type: field_filter
@@ -720,9 +720,9 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     listens_to_filters: []
-    field: users_messages_pushnotification_send.campaign_name
+    field:  push_fact.send_campaign_name
   - name: Canvas Name
     title: Canvas Name
     type: field_filter
@@ -730,6 +730,6 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     listens_to_filters: []
-    field: users_messages_pushnotification_send.canvas_name
+    field:  push_fact.send_canvas_name

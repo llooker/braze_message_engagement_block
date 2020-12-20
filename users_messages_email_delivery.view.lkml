@@ -1,6 +1,6 @@
 # Email Delivery Events
 view: users_messages_email_delivery {
-  sql_table_name: PUBLIC.USERS_MESSAGES_EMAIL_DELIVERY ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_DELIVERIES ;;
 
   dimension: id {
     primary_key: yes
@@ -62,7 +62,7 @@ view: users_messages_email_delivery {
   dimension_group: email_delivered_time {
     description: "timestamp of the email delivery"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

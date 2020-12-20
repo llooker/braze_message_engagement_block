@@ -1,6 +1,6 @@
 # Email Bounce Events
 view: users_messages_email_bounce {
-  sql_table_name: PUBLIC.USERS_MESSAGES_EMAIL_BOUNCE ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_BOUNCES ;;
 
   dimension: id {
     primary_key: yes
@@ -62,7 +62,7 @@ view: users_messages_email_bounce {
   dimension_group: email_bounced_time {
     description: "timestamp of the email bounce event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

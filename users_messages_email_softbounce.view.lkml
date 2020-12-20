@@ -62,7 +62,7 @@ view: users_messages_email_softbounce {
   dimension_group: email_soft_bounced_time {
     description: "timestamp of the soft bounce event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

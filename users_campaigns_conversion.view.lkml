@@ -1,6 +1,6 @@
 # Campaign Conversions
 view: users_campaigns_conversion {
-  sql_table_name: PUBLIC.USERS_CAMPAIGNS_CONVERSION ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_CAMPAIGN_CONVERSION ;;
 
   dimension: id {
     primary_key: yes
@@ -12,6 +12,7 @@ view: users_campaigns_conversion {
 
   dimension: app_id {
     description: "id of the app"
+    hidden: yes
     type: string
     sql: ${TABLE}."APP_ID" ;;
   }
@@ -65,7 +66,7 @@ view: users_campaigns_conversion {
   dimension_group: converted_time {
     description: "timestamp of the conversion"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,
@@ -86,6 +87,7 @@ view: users_campaigns_conversion {
   }
 
   dimension: external_user_id {
+    label: "External ID"
     description: "External ID of the user"
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
@@ -105,7 +107,8 @@ view: users_campaigns_conversion {
   }
 
   dimension: user_id {
-    description: "Braze user ID"
+    label: "Email Address"
+    description: "Email address of user"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }
@@ -121,12 +124,20 @@ view: users_campaigns_conversion {
   measure: campaign_conversion_event_count {
     description: "distinct count of campaign conversion behavior event IDs"
     type: count_distinct
+    hidden: yes
     sql: ${TABLE}."ID" ;;
   }
 
   measure: unique_users_that_converted_on_a_campaign {
     description: "distinct count of Braze user IDs who converted on a campaign"
     type: count_distinct
+    hidden: yes
     sql: ${TABLE}."USER_ID" ;;
+  }
+
+  measure: unique_conversion_event_count {
+    description: "distinct count of users who converted on a campaign"
+    type: count_distinct
+    sql: CASE WHEN ${conversion_custom_event_name} = 'AWAITING PAYMENT CONFIRMATION' THEN ${id} END ;;
   }
 }

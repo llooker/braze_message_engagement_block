@@ -1,6 +1,6 @@
 # Canvas Conversions
 view: users_canvas_conversion {
-  sql_table_name: PUBLIC.USERS_CANVAS_CONVERSION ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_CANVAS_CONVERSION ;;
 
   dimension: id {
     primary_key: yes
@@ -12,6 +12,7 @@ view: users_canvas_conversion {
 
   dimension: app_id {
     description: "id for the app on which the user action occurred"
+    hidden: yes
     type: string
     sql: ${TABLE}."APP_ID" ;;
   }
@@ -77,7 +78,7 @@ view: users_canvas_conversion {
   dimension_group: converted_time {
     description: "timestamp of the conversion"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,
@@ -98,13 +99,15 @@ view: users_canvas_conversion {
   }
 
   dimension: external_user_id {
+    label: "External ID"
     description: "External ID of the user"
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }
 
   dimension: user_id {
-    description: "braze user id of the user"
+    label: "Email Address"
+    description: "Email address of user"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }

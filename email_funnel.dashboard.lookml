@@ -5,13 +5,13 @@
   - title: Email Funnel
     name: Email Funnel
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     type: looker_funnel
     fields:
-    - users_messages_email_send.emails_sent
-    - users_messages_email_delivery.emails_delivered
-    - users_messages_email_open.email_unique_opens
-    - users_messages_email_click.email_unique_clicks
+    - email_fact.emails_sent
+    - email_fact.emails_delivered
+    - email_fact.email_unique_opens
+    - email_fact.email_unique_clicks
     limit: 500
     leftAxisLabelVisible: false
     leftAxisLabel: ''
@@ -58,8 +58,8 @@
     totals_color: "#808080"
     series_types: {}
     listen:
-      Campaign Name: users_messages_email_send.campaign_name
-      Canvas Name: users_messages_email_send.canvas_name
+      Campaign Name: email_fact.send_campaign_name
+      Canvas Name: email_fact.send_canvas_name
     note_state: expanded
     note_display: above
     note_text: 'Note: use campaign name OR canvas name filters for best results.'
@@ -75,9 +75,9 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     listens_to_filters: []
-    field: users_messages_email_send.campaign_name
+    field: email_fact.send_campaign_name
   - name: Canvas Name
     title: Canvas Name
     type: field_filter
@@ -85,6 +85,6 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore: email_fact
     listens_to_filters: []
-    field: users_messages_email_send.canvas_name
+    field: email_fact.send_canvas_name

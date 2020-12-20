@@ -48,7 +48,7 @@ view: users_messages_newsfeedcard_click {
   dimension_group: newsfeed_card_click_time {
     description: "timestamp of the newsfeed card click"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

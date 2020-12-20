@@ -1,6 +1,6 @@
 # Email Open Events
 view: users_messages_email_open {
-  sql_table_name: PUBLIC.USERS_MESSAGES_EMAIL_OPEN ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_OPENS ;;
 
   dimension: id {
     primary_key: yes
@@ -62,7 +62,7 @@ view: users_messages_email_open {
   dimension_group: email_opened_time {
     description: "timestamp of the email open"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

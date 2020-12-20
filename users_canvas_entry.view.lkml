@@ -1,6 +1,6 @@
 # Users Entered Canvas
 view: users_canvas_entry {
-  sql_table_name: PUBLIC.USERS_CANVAS_ENTRY ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_CANVAS_ENTRIES ;;
 
   dimension: id {
     primary_key: yes
@@ -41,7 +41,7 @@ view: users_canvas_entry {
   dimension_group: entered_canvas_time {
     description: "timestamp the user entered the canvas"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,
@@ -70,8 +70,8 @@ view: users_canvas_entry {
 
   dimension: in_control_group {
     description: "is the user in the control group for the canvas variation"
-    type: yesno
-    sql: ${TABLE}."IN_CONTROL_GROUP" ;;
+    type: string
+    sql: CASE WHEN ${TABLE}."IN_CONTROL_GROUP" IS NOT NULL THEN 'Yes' ELSE 'NO' END ;;
   }
 
   dimension: user_id {

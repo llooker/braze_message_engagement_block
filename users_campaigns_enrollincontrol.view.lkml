@@ -1,6 +1,6 @@
 # Control Group Enrollment
 view: users_campaigns_enrollincontrol {
-  sql_table_name: PUBLIC.USERS_CAMPAIGNS_ENROLLINCONTROL ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_CAMPAIGN_ENROLLMENT ;;
 
   dimension: id {
     primary_key: yes
@@ -35,7 +35,7 @@ view: users_campaigns_enrollincontrol {
     description: "timestamp of the campaign control group enrollment"
     hidden: yes
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

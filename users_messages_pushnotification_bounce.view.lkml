@@ -1,6 +1,6 @@
 # Push Bounce Events
 view: users_messages_pushnotification_bounce {
-  sql_table_name: PUBLIC.USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_BOUNCES ;;
 
   dimension: id {
     primary_key: yes
@@ -97,7 +97,7 @@ view: users_messages_pushnotification_bounce {
   dimension_group: push_bounced_time {
     description: "timestamp of the push bounce event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

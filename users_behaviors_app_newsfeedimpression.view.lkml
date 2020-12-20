@@ -49,7 +49,6 @@ view: users_behaviors_app_newsfeedimpression {
     description: "timestamp of the newsfeed impression"
     label: "Time"
     type: time
-    datatype: epoch
     timeframes: [
       raw,
       time,

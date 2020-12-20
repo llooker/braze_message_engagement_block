@@ -26,7 +26,7 @@ view: users_behaviors_uninstall {
     description: "timestamp of the uninstall"
     label: "Time"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

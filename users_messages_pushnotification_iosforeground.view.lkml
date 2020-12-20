@@ -97,7 +97,7 @@ view: users_messages_pushnotification_iosforeground {
   dimension_group: ios_foreground_time {
     description: "timestamp of the iOS foreground open event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

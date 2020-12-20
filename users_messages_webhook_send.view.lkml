@@ -1,6 +1,6 @@
 # Webhook Send Events
 view: users_messages_webhook_send {
-  sql_table_name: PUBLIC.USERS_MESSAGES_WEBHOOK_SEND ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_WEBHOOK_SENDS ;;
 
   dimension: id {
     primary_key: yes
@@ -47,6 +47,7 @@ view: users_messages_webhook_send {
   }
 
   dimension: external_user_id {
+    label: "External ID"
     description: "External ID of the user"
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
@@ -66,7 +67,8 @@ view: users_messages_webhook_send {
   }
 
   dimension: user_id {
-    description: "Braze user id"
+    label: "Email Address"
+    description: "Email address of the user"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }
@@ -74,7 +76,7 @@ view: users_messages_webhook_send {
   dimension_group: webhook_sent_time {
     description: "timestamp of the webhook send event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

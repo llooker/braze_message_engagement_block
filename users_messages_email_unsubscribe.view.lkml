@@ -1,6 +1,6 @@
 # Email Unsubscribe Events
 view: users_messages_email_unsubscribe {
-  sql_table_name: PUBLIC.USERS_MESSAGES_EMAIL_UNSUBSCRIBE ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_EMAIL_UNSUB ;;
 
   dimension: id {
     primary_key: yes
@@ -62,7 +62,7 @@ view: users_messages_email_unsubscribe {
   dimension_group: email_unsubscribe_time {
     description: "timestamp of the unsubscribe event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

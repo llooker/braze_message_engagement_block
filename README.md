@@ -43,3 +43,4 @@ Create a new [connection](https://docs.looker.com/setup-and-management/connectin
 
 #### Naming
 Be aware of different naming conventions. If you've customized any View/table or model names, rename each in the LookML to the name you've selected. You can use a global Find & Replace for this (top right corner search bar that says "Find & Replace in Project").
+

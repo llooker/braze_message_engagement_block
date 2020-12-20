@@ -1,6 +1,6 @@
 # In-App Message Click Events
 view: users_messages_inappmessage_click {
-  sql_table_name: PUBLIC.USERS_MESSAGES_INAPPMESSAGE_CLICK ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_IN_APP_CLICKS ;;
 
   dimension: id {
     primary_key: yes
@@ -75,7 +75,7 @@ view: users_messages_inappmessage_click {
   dimension_group: click_time {
     description: "timestamp of the in-app-message click"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

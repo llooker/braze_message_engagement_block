@@ -1,6 +1,6 @@
 # Push Send Events
 view: users_messages_pushnotification_send {
-  sql_table_name: PUBLIC.USERS_MESSAGES_PUSHNOTIFICATION_SEND ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_PUSH_SENDS ;;
 
   dimension: id {
     primary_key: yes
@@ -86,7 +86,7 @@ view: users_messages_pushnotification_send {
   dimension_group: push_sent_time {
     description: "timestamp of the push sent event"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,

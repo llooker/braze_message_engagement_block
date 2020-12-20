@@ -1,6 +1,6 @@
 # In-App Message Impression Events
 view: users_messages_inappmessage_impression {
-  sql_table_name: PUBLIC.USERS_MESSAGES_INAPPMESSAGE_IMPRESSION ;;
+  sql_table_name: PROD_ANALYTICS.ANALYTICS_PROCESSED.TBL_BRAZE_IN_APP_IMPRESSIONS ;;
 
   dimension: id {
     primary_key: yes
@@ -55,12 +55,14 @@ view: users_messages_inappmessage_impression {
 
   dimension: card_id {
     description: "API ID of the card this in app message comes from"
+    hidden: yes
     type: string
     sql: ${TABLE}."CARD_ID" ;;
   }
 
   dimension: device_id {
     description: "id of the device on which the event occurred"
+    hidden: yes
     type: string
     sql: ${TABLE}."DEVICE_ID" ;;
   }
@@ -73,8 +75,8 @@ view: users_messages_inappmessage_impression {
   }
 
   dimension: external_user_id {
+    label: "External ID"
     description: "External ID of the user"
-    hidden: yes
     type: string
     sql: ${TABLE}."EXTERNAL_USER_ID" ;;
   }
@@ -82,7 +84,7 @@ view: users_messages_inappmessage_impression {
   dimension_group: impression_time {
     description: "timestamp of the in-app-message impression"
     type: time
-    datatype: epoch
+     
     timeframes: [
       raw,
       time,
@@ -112,6 +114,7 @@ view: users_messages_inappmessage_impression {
 
   dimension: os_version {
     description: "os version of device used for the action"
+    hidden: yes
     type: string
     sql: ${TABLE}."OS_VERSION" ;;
   }
@@ -124,12 +127,14 @@ view: users_messages_inappmessage_impression {
 
   dimension: send_id {
     description: "id of the message if specified for the campaign"
+    hidden: yes
     type: string
     sql: ${TABLE}."SEND_ID" ;;
   }
 
   dimension: user_id {
-    description: "Braze user id"
+    label: "Email Address"
+    description: "User Email Address"
     type: string
     sql: ${TABLE}."USER_ID" ;;
   }

@@ -5,17 +5,17 @@
   - title: Top 10 Performing Email Campaigns by Open Rate
     name: Top 10 Performing Email Campaigns by Open Rate
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore:  email_fact
     type: looker_column
     fields:
-    - users_messages_email_open.email_unique_open_rate
-    - users_messages_email_open.email_unique_opens
-    - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+    -  email_fact.email_unique_open_rate
+    -  email_fact.email_unique_opens
+    -  email_fact.emails_sent
+    -  email_fact.send_campaign_name
     filters:
-      users_messages_email_send.campaign_id: "-NULL"
+       email_fact.send_campaign_id: "-NULL"
     sorts:
-    - users_messages_email_open.email_unique_open_rate desc
+    -  email_fact.email_unique_open_rate desc
     limit: 500
     query_timezone: America/New_York
     stacking: ''
@@ -28,7 +28,7 @@
     show_view_names: false
     point_style: circle_outline
     series_types:
-      users_messages_email_open.email_unique_open_rate: line
+       email_fact.email_unique_open_rate: line
     limit_displayed_rows: true
     limit_displayed_rows_values:
       show_hide: show
@@ -38,12 +38,12 @@
     - label: Email Volume
       orientation: left
       series:
-      - id: users_messages_email_open.email_unique_opens
+      - id:  email_fact.email_unique_opens
         name: Email Unique Opens
-        axisId: users_messages_email_open.email_unique_opens
-      - id: users_messages_email_send.emails_sent
+        axisId:  email_fact.email_unique_opens
+      - id:  email_fact.emails_sent
         name: Emails Sent
-        axisId: users_messages_email_send.emails_sent
+        axisId:  email_fact.emails_sent
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -53,9 +53,9 @@
     - label: Unique Open Rate
       orientation: right
       series:
-      - id: users_messages_email_open.email_unique_open_rate
+      - id:  email_fact.email_unique_open_rate
         name: Email Unique Open Rate
-        axisId: users_messages_email_open.email_unique_open_rate
+        axisId:  email_fact.email_unique_open_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -83,7 +83,7 @@
     totals_color: "#808080"
     hidden_fields: []
     listen:
-      Email Sent Date: users_messages_email_send.email_send_time_date
+      Email Sent Date:  email_fact.email_send_time_date
     row: 0
     col: 0
     width: 12
@@ -91,17 +91,17 @@
   - title: Top 10 Performing Email Campaigns by Click Rate
     name: Top 10 Performing Email Campaigns by Click Rate
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore:  email_fact
     type: looker_column
     fields:
-    - users_messages_email_click.email_unique_click_rate
-    - users_messages_email_click.email_unique_clicks
-    - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+    -  email_fact.email_unique_click_rate
+    -  email_fact.email_unique_clicks
+    -  email_fact.emails_sent
+    -  email_fact.send_campaign_name
     filters:
-      users_messages_email_send.campaign_id: "-NULL"
+       email_fact.send_campaign_id: "-NULL"
     sorts:
-    - users_messages_email_click.email_unique_click_rate desc
+    -  email_fact.email_unique_click_rate desc
     limit: 500
     column_limit: 50
     query_timezone: America/New_York
@@ -115,8 +115,8 @@
     show_view_names: false
     point_style: circle_outline
     series_types:
-      users_messages_email_open.email_unique_open_rate: line
-      users_messages_email_click.email_unique_click_rate: line
+       email_fact.email_unique_open_rate: line
+       email_fact.email_unique_click_rate: line
     limit_displayed_rows: true
     limit_displayed_rows_values:
       show_hide: show
@@ -126,12 +126,12 @@
     - label: Email Volume
       orientation: left
       series:
-      - id: users_messages_email_send.emails_sent
+      - id:  email_fact.emails_sent
         name: Emails Sent
-        axisId: users_messages_email_send.emails_sent
-      - id: users_messages_email_click.email_unique_clicks
+        axisId:  email_fact.emails_sent
+      - id:  email_fact.email_unique_clicks
         name: Email Unique Clicks
-        axisId: users_messages_email_click.email_unique_clicks
+        axisId:  email_fact.email_unique_clicks
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -141,9 +141,9 @@
     - label: Unique Click Rate
       orientation: right
       series:
-      - id: users_messages_email_click.email_unique_click_rate
+      - id:  email_fact.email_unique_click_rate
         name: Email Unique Click Rate
-        axisId: users_messages_email_click.email_unique_click_rate
+        axisId:  email_fact.email_unique_click_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -170,7 +170,7 @@
     totals_color: "#808080"
     hidden_fields: []
     listen:
-      Email Sent Date: users_messages_email_send.email_send_time_date
+      Email Sent Date:  email_fact.email_send_time_date
     row: 0
     col: 12
     width: 12
@@ -178,17 +178,17 @@
   - title: Bottom 10 Performing Email Campaigns by Open Rate
     name: Bottom 10 Performing Email Campaigns by Open Rate
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore:  email_fact
     type: looker_column
     fields:
-    - users_messages_email_open.email_unique_open_rate
-    - users_messages_email_open.email_unique_opens
-    - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+    -  email_fact.email_unique_open_rate
+    -  email_fact.email_unique_opens
+    -  email_fact.emails_sent
+    -  email_fact.send_campaign_name
     filters:
-      users_messages_email_send.campaign_id: "-NULL"
+       email_fact.send_campaign_id: "-NULL"
     sorts:
-    - users_messages_email_open.email_unique_open_rate
+    -  email_fact.email_unique_open_rate
     limit: 500
     column_limit: 50
     query_timezone: America/New_York
@@ -202,7 +202,7 @@
     show_view_names: false
     point_style: circle_outline
     series_types:
-      users_messages_email_open.email_unique_open_rate: line
+       email_fact.email_unique_open_rate: line
     limit_displayed_rows: true
     limit_displayed_rows_values:
       show_hide: show
@@ -212,12 +212,12 @@
     - label: Email Volume
       orientation: left
       series:
-      - id: users_messages_email_open.email_unique_opens
+      - id:  email_fact.email_unique_opens
         name: Email Unique Opens
-        axisId: users_messages_email_open.email_unique_opens
-      - id: users_messages_email_send.emails_sent
+        axisId:  email_fact.email_unique_opens
+      - id:  email_fact.emails_sent
         name: Emails Sent
-        axisId: users_messages_email_send.emails_sent
+        axisId:  email_fact.emails_sent
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -227,9 +227,9 @@
     - label: Unique Open Rate
       orientation: right
       series:
-      - id: users_messages_email_open.email_unique_open_rate
+      - id:  email_fact.email_unique_open_rate
         name: Email Unique Open Rate
-        axisId: users_messages_email_open.email_unique_open_rate
+        axisId:  email_fact.email_unique_open_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -256,7 +256,7 @@
     totals_color: "#808080"
     hidden_fields: []
     listen:
-      Email Sent Date: users_messages_email_send.email_send_time_date
+      Email Sent Date:  email_fact.email_send_time_date
     row: 9
     col: 0
     width: 12
@@ -264,17 +264,17 @@
   - title: Bottom 10 Performing Email Campaigns by Click Rate
     name: Bottom 10 Performing Email Campaigns by Click Rate
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore:  email_fact
     type: looker_column
     fields:
-    - users_messages_email_click.email_unique_click_rate
-    - users_messages_email_click.email_unique_clicks
-    - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+    -  email_fact.email_unique_click_rate
+    -  email_fact.email_unique_clicks
+    -  email_fact.emails_sent
+    -  email_fact.send_campaign_name
     filters:
-      users_messages_email_send.campaign_id: "-NULL"
+       email_fact.send_campaign_id: "-NULL"
     sorts:
-    - users_messages_email_click.email_unique_click_rate
+    -  email_fact.email_unique_click_rate
     limit: 500
     column_limit: 50
     query_timezone: America/New_York
@@ -288,8 +288,8 @@
     show_view_names: false
     point_style: circle_outline
     series_types:
-      users_messages_email_open.email_unique_open_rate: line
-      users_messages_email_click.email_unique_click_rate: line
+       email_fact.email_unique_open_rate: line
+       email_fact.email_unique_click_rate: line
     limit_displayed_rows: true
     limit_displayed_rows_values:
       show_hide: show
@@ -299,12 +299,12 @@
     - label: Email Volume
       orientation: left
       series:
-      - id: users_messages_email_send.emails_sent
+      - id:  email_fact.emails_sent
         name: Emails Sent
-        axisId: users_messages_email_send.emails_sent
-      - id: users_messages_email_click.email_unique_clicks
+        axisId:  email_fact.emails_sent
+      - id:  email_fact.email_unique_clicks
         name: Email Unique Clicks
-        axisId: users_messages_email_click.email_unique_clicks
+        axisId:  email_fact.email_unique_clicks
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -314,9 +314,9 @@
     - label: Unique Click Rate
       orientation: right
       series:
-      - id: users_messages_email_click.email_unique_click_rate
+      - id:  email_fact.email_unique_click_rate
         name: Email Unique Click Rate
-        axisId: users_messages_email_click.email_unique_click_rate
+        axisId:  email_fact.email_unique_click_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -343,7 +343,7 @@
     totals_color: "#808080"
     hidden_fields: []
     listen:
-      Email Sent Date: users_messages_email_send.email_send_time_date
+      Email Sent Date:  email_fact.email_send_time_date
     row: 9
     col: 12
     width: 12
@@ -351,15 +351,15 @@
   - title: Top 10 Performing Push Campaigns by Open Rate
     name: Top 10 Performing Push Campaigns by Open Rate
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     type: looker_line
     fields:
-    - users_messages_pushnotification_open.push_open_rate
-    - users_messages_pushnotification_open.push_opens
-    - users_messages_pushnotification_send.push_sent
-    - users_messages_pushnotification_send.campaign_name
+    -  push_fact.push_open_rate
+    -  push_fact.push_opens
+    -  push_fact.push_sent
+    -  push_fact.send_campaign_name
     sorts:
-    - users_messages_pushnotification_open.push_open_rate desc
+    -  push_fact.push_open_rate desc
     limit: 500
     query_timezone: America/New_York
     stacking: ''
@@ -372,8 +372,8 @@
     show_view_names: false
     point_style: none
     series_types:
-      users_messages_pushnotification_send.push_sent: column
-      users_messages_pushnotification_open.push_opens: column
+       push_fact.push_sent: column
+       push_fact.push_opens: column
     limit_displayed_rows: true
     limit_displayed_rows_values:
       show_hide: show
@@ -383,12 +383,12 @@
     - label: Push Volume
       orientation: left
       series:
-      - id: users_messages_pushnotification_open.push_opens
+      - id:  push_fact.push_opens
         name: Push Opens
-        axisId: users_messages_pushnotification_open.push_opens
-      - id: users_messages_pushnotification_send.push_sent
+        axisId:  push_fact.push_opens
+      - id:  push_fact.push_sent
         name: Push Sent
-        axisId: users_messages_pushnotification_send.push_sent
+        axisId:  push_fact.push_sent
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -397,9 +397,9 @@
     - label:
       orientation: right
       series:
-      - id: users_messages_pushnotification_open.push_open_rate
+      - id:  push_fact.push_open_rate
         name: Push Open Rate
-        axisId: users_messages_pushnotification_open.push_open_rate
+        axisId:  push_fact.push_open_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -425,7 +425,7 @@
     show_silhouette: false
     totals_color: "#808080"
     listen:
-      Push Sent Date: users_messages_pushnotification_send.push_sent_time_date
+      Push Sent Date:  push_fact.push_sent_time_date
     row: 18
     col: 0
     width: 12
@@ -433,15 +433,15 @@
   - title: Bottom 10 Performing Campaigns by Open Rate
     name: Bottom 10 Performing Campaigns by Open Rate
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     type: looker_line
     fields:
-    - users_messages_pushnotification_open.push_open_rate
-    - users_messages_pushnotification_open.push_opens
-    - users_messages_pushnotification_send.push_sent
-    - users_messages_pushnotification_send.campaign_name
+    -  push_fact.push_open_rate
+    -  push_fact.push_opens
+    -  push_fact.push_sent
+    -  push_fact.send_campaign_name
     sorts:
-    - users_messages_pushnotification_open.push_open_rate
+    -  push_fact.push_open_rate
     limit: 500
     query_timezone: America/New_York
     stacking: ''
@@ -454,8 +454,8 @@
     show_view_names: false
     point_style: none
     series_types:
-      users_messages_pushnotification_send.push_sent: column
-      users_messages_pushnotification_open.push_opens: column
+       push_fact.push_sent: column
+       push_fact.push_opens: column
     limit_displayed_rows: true
     limit_displayed_rows_values:
       show_hide: show
@@ -465,12 +465,12 @@
     - label: Push Volume
       orientation: left
       series:
-      - id: users_messages_pushnotification_open.push_opens
+      - id:  push_fact.push_opens
         name: Push Opens
-        axisId: users_messages_pushnotification_open.push_opens
-      - id: users_messages_pushnotification_send.push_sent
+        axisId:  push_fact.push_opens
+      - id:  push_fact.push_sent
         name: Push Sent
-        axisId: users_messages_pushnotification_send.push_sent
+        axisId:  push_fact.push_sent
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -479,9 +479,9 @@
     - label:
       orientation: right
       series:
-      - id: users_messages_pushnotification_open.push_open_rate
+      - id:  push_fact.push_open_rate
         name: Push Open Rate
-        axisId: users_messages_pushnotification_open.push_open_rate
+        axisId:  push_fact.push_open_rate
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -507,7 +507,7 @@
     show_silhouette: false
     totals_color: "#808080"
     listen:
-      Push Sent Date: users_messages_pushnotification_send.push_sent_time_date
+      Push Sent Date:  push_fact.push_sent_time_date
     row: 18
     col: 12
     width: 12
@@ -520,9 +520,9 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
+    explore:  email_fact
     listens_to_filters: []
-    field: users_messages_email_send.email_send_time_date
+    field:  email_fact.email_send_time_date
   - name: Push Sent Date
     title: Push Sent Date
     type: field_filter
@@ -530,6 +530,6 @@
     allow_multiple_values: true
     required: false
     model: braze_currents_block_message_engagement
-    explore: users_messages_pushnotification_send
+    explore:  push_fact
     listens_to_filters: []
-    field: users_messages_pushnotification_send.push_sent_time_date
+    field:  push_fact.push_sent_time_date
